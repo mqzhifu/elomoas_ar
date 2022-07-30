@@ -38,7 +38,7 @@
           </div>
         </a>
       </li>
-      <li><a href="message.html"><i class="feather-message-square font-xl text-current"></i></a></li>
+<!--      <li><a href="message.html"><i class="feather-message-square font-xl text-current"></i></a></li>-->
       <li>
         <a href="#"><i class="feather-settings animation-spin d-inline-block font-xl text-current"></i>
           <div class="menu-dropdown switchcolor-wrap">
@@ -152,7 +152,23 @@
           </div>
         </a>
       </li>
-      <li><a href="default-user-profile.html"><img src="../../assets/images/female-profile.png" alt="user" class="w40 mt--1"></a></li>
+      <li>
+        <a href="#">
+          <img src="../../assets/images/female-profile.png" alt="user" class="w40 mt--1">
+
+          <div class="menu-dropdown">
+            <h4 class="fw-700 font-xs mb-4">Settings</h4>
+            <div class="card bg-transparent-card w-100 border-0 pl-5 mb-3">
+<!--              <img src="../../assets/images/user-8.png" alt="user" class="w40 position-absolute left-0">-->
+<!--              <h5 class="font-xsss text-grey-900 mb-1 mt-0 fw-700 d-block">Hendrix Stamp <span class="text-grey-400 font-xsssss fw-600 float-right mt-1"> 3 min</span></h5>-->
+              <h6 class="text-grey-500 fw-500 font-xssss lh-4">退出</h6>
+            </div>
+
+          </div>
+
+
+        </a>
+      </li>
       <li><a href="#" class="menu-search-icon"><i class="feather-search text-grey-900 font-lg"></i></a></li>
     </ul>
   </div>
