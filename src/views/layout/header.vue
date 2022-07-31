@@ -161,7 +161,8 @@
             <div class="card bg-transparent-card w-100 border-0 pl-5 mb-3">
 <!--              <img src="../../assets/images/user-8.png" alt="user" class="w40 position-absolute left-0">-->
 <!--              <h5 class="font-xsss text-grey-900 mb-1 mt-0 fw-700 d-block">Hendrix Stamp <span class="text-grey-400 font-xsssss fw-600 float-right mt-1"> 3 min</span></h5>-->
-              <h6 class="text-grey-500 fw-500 font-xssss lh-4">退出</h6>
+              <i class="feather-power font-xl text-current w40 position-absolute left-0"></i>
+              <h6 class="text-grey-500 fw-500 font-xssss lh-4" @click.native="logout">退出</h6>
             </div>
 
           </div>
@@ -174,3 +175,27 @@
   </div>
 
 </template>
+
+<script>
+
+export default {
+  data : function (){
+    return {currMenuId:0}
+  },
+  name: "Header",
+  mounted() {
+    //useStore().commit("Setting",1)
+    console.log("left current menuId:" , this.$store.getters.getMenuId)
+
+    // useStore().watch()
+
+  },
+  methods:{
+    logout:function(){
+      this.$TokenManager.Clear();
+    },
+  },
+
+
+};
+</script>

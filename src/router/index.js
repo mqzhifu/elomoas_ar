@@ -1,24 +1,29 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
 import SettingView from "../views/setting"
 import VideoView from "@/views/video";
 import FileView from "@/views/file";
+import Home from "@/views/Home";
+import Blank from "@/views/Blank.vue";
+import Screen from "@/views/Screen";
+
+import HomeView from "../views/HomeView.vue";
 import LoginView from "@/views/login";
+
 const routes = [
   {
     path: "/",
     name: "home",
-    // component: HomeView,
+    component: Home,
   },
   {
     path: "/blank",
     name: "blank",
-    // component: HomeView,
+    component: Blank,
   },
   {
     path: "/screen",
     name: "screen",
-    // component: HomeView,
+    component: Screen,
   },
   {
     path: "/file",
@@ -30,11 +35,11 @@ const routes = [
     name: "video",
     component: VideoView,
   },
-  {
-    path: "/login",
-    name: "login",
-    component: LoginView,
-  },
+  // {
+  //   path: "/login",
+  //   name: "login",
+  //   component: LoginView,
+  // },
   {
     path: "/setting",
     name: "setting",

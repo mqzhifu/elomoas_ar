@@ -12,7 +12,8 @@
       <!-- main content -->
       <div class="main-content">
         <v-header></v-header>
-        <div class="middle-sidebar-bottom bg-lightblue theme-dark-bg">
+        <div class="middle-sidebar-bottom">
+<!--          <div class="middle-sidebar-bottom bg-lightblue theme-dark-bg">-->
             <router-view />
         </div>
       </div>

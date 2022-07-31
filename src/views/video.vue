@@ -1,245 +1,63 @@
 <template>
-
-    <div class="middle-sidebar-left">
+      <div class="middle-sidebar-bottom">
+        <div class=" bg-white dark-bg-transparent mr-3 pr-0" style="width: 100%">
       <div class="row">
-        <div class="col-xl-8 col-xxl-9">
-          <div class="card border-0 mb-0 rounded-lg overflow-hidden live-stream bg-image-center bg-image-cover" style="background-image: url(../assets/images/video-bg.jpg);">
+
+
+
+        <div class="col-xl-10 ">
+          <div class="card border-0 mb-0 rounded-lg overflow-hidden live-stream bg-image-center bg-image-cover" style="background-image: url(../assets/../assets/../assets/images/video-bg.jpg);">
             <div class="card-body d-flex justify-content-start p-2 position-absolute top-0 w-100 bg-gradiant-top">
-              <figure class="avatar mb-0 mt-0 overflow-hidden"><img src="../assets/images/user-1.png" alt="image" class="z-index-1 shadow-sm rounded-circle w40"></figure><h5 class="text-white mt-1 fw-700 ml-2 z-index-1 ">Cabe Deo <span class="d-block font-xsssss mt-1 fw-400 text-grey-300 z-index-1 ">2 hour</span></h5>
+              <figure class="avatar mb-0 mt-0 overflow-hidden"><img src="../assets/../assets/../assets/images/user-1.png" alt="image" class="z-index-1 shadow-sm rounded-circle w40"></figure><h5 class="text-white mt-1 fw-700 ml-2 z-index-1 ">Cabe Deo <span class="d-block font-xsssss mt-1 fw-400 text-grey-300 z-index-1 ">2 hour</span></h5>
               <span class="live-tag position-absolute right-15 mt-2 bg-danger p-2 z-index-1  rounded-lg text-white font-xsssss text-uppersace fw-700 ls-3">LIVE</span>
             </div>
             <div class="card-body text-center p-2 position-absolute w-100 bottom-0 bg-gradiant-bottom">
-              <a href="#" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 mr-0 z-index-1"><i class="feather-grid text-white font-md"></i></a>
-              <a href="#" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 z-index-1"><i class="feather-mic-off text-white font-md"></i></a>
+              <a href="#" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 mr-0 z-index-1"><i class="feather-x text-white font-md"></i></a>
+              <a href="#" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 z-index-1"><i class="feather-send text-white font-md"></i></a>
               <a href="#" class="btn-round-xxl bg-danger z-index-1"><i class="feather-phone-off text-white font-md"></i></a>
               <a href="#" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 z-index-1"><i class="ti-video-camera text-white font-md"></i></a>
-              <a href="#" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 ml-0 z-index-1"><i class="ti-settings text-white font-md"></i></a>
+              <a href="#" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 ml-0 z-index-1"><i class="feather-monitor text-white font-md"></i></a>
               <span class="p-2 bg-blur z-index-1 text-white fw-700 font-xssss rounded-lg right-15 position-absolute mb-4 bottom-0">44:00</span>
             </div>
           </div>
-          <div class="card d-block border-0 rounded-lg overflow-hidden dark-bg-transparent bg-transparent mt-4 pb-4">
-            <div class="row">
-              <div class="col-10"><h2 class="fw-700 font-md d-block lh-4 mb-2">Microsoft Access Development, Design and Advanced Methods Workshop Advance Tutorial</h2></div>
-              <div class="col-2">
-                <a href="#" class="btn-round-md ml-3 mb-2 d-inline-block float-right rounded-lg bg-danger"><i class="feather-bookmark font-sm text-white"></i></a>
-                <a href="#" class="btn-round-md ml-0 d-inline-block float-right rounded-lg bg-greylight" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="feather-share-2 font-sm text-grey-700"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right p-3 border-0 shadow-xss" aria-labelledby="dropdownMenu2">
-                  <ul class="d-flex align-items-center mt-0 float-left">
-                    <li class="mr-2"><h4 class="fw-600 font-xss text-grey-900  mt-2 mr-3">Share: </h4></li>
-                    <li class="mr-2"><a href="#" class="btn-round-md bg-facebook"><i class="font-xs ti-facebook text-white"></i></a></li>
-                    <li class="mr-2"><a href="#" class="btn-round-md bg-twiiter"><i class="font-xs ti-twitter-alt text-white"></i></a></li>
-                    <li class="mr-2"><a href="#" class="btn-round-md bg-linkedin"><i class="font-xs ti-linkedin text-white"></i></a></li>
-                    <li class="mr-2"><a href="#" class="btn-round-md bg-instagram"><i class="font-xs ti-instagram text-white"></i></a></li>
-                    <li class="mr-2"><a href="#" class="btn-round-md bg-pinterest"><i class="font-xs ti-pinterest text-white"></i></a></li>
-                  </ul>
-                </div>
-              </div>
+        </div>
+
+
+        <div class="col-xl-2 scroll-bar bg-white" style="height: calc(100vh - 150px) ">
+          <form action="#" class="">
+            <div class="search-form">
+              <i class="ti-search font-xs"></i>
+              <input type="text" class="form-control text-grey-500 mb-0 bg-greylight border-0" placeholder="Search here.">
             </div>
+          </form>
+          <div class="section full mt-2 mb-2 pl-3">
+            <ul class="list-group list-group-flush">
+              <li class="bg-transparent list-group-item no-icon pl-0"><figure class="avatar float-left mb-0 mr-3"><img src="../assets/images/user-8.png" alt="image" class="w45"></figure><h3 class="fw-700 mb-0 mt-1"><a class="font-xsss text-grey-900 text-dark d-block" href="chat.html">Hurin Seary</a></h3> <span class="d-block">Online</span> <span class="badge mt-0 text-grey-500 badge-pill">4:09 pm</span><div class="snippet float-right" data-title=".dot-typing"><div class="stage"><div class="dot-typing"></div></div></div></li>
+              <li class="bg-transparent list-group-item no-icon pl-0"><figure class="avatar float-left mb-0 mr-3"><img src="../assets/images/user-7.png" alt="image" class="w45"></figure><h3 class="fw-700 mb-0 mt-1"><a class="font-xsss text-grey-900 text-dark d-block" href="chat.html">Victor Exrixon</a></h3> <span class="d-block">Offline</span> <span class="badge badge-primary text-white badge-pill"><i class="feather-phone-outgoing"></i></span></li>
+              <li class="bg-transparent list-group-item no-icon pl-0"><figure class="avatar float-left mb-0 mr-3"><img src="../assets/images/user-12.png" alt="image" class="w45"></figure><h3 class="fw-700 mb-0 mt-1"><a class="font-xsss text-grey-900 text-dark d-block" href="chat.html">Surfiya Zakir</a></h3> <span class="d-block">Working</span>  </li>
+              <li class="bg-transparent list-group-item no-icon pl-0"><figure class="avatar float-left mb-0 mr-3"><img src="../assets/images/user-4.png" alt="image" class="w45"></figure><h3 class="fw-700 mb-0 mt-1"><a class="font-xsss text-grey-900 text-dark d-block" href="chat.html">Goria Coast</a></h3> <span class="d-block">Away</span> </li>
 
-            <span class="font-xssss fw-700 text-grey-900 d-inline-block ml-0 text-dark"><b>Cassica Vanni</b></span>
-            <span class="dot ml-2 mr-2 d-inline-block btn-round-xss bg-grey"></span>
-            <span class="font-xssss fw-600 text-grey-500 d-inline-block ml-1">Developer</span>
-            <span class="font-xssss fw-600 text-grey-500 d-inline-block ml-1">Design</span>
-            <span class="font-xssss fw-600 text-grey-500 d-inline-block ml-1">Developer</span>
-            <span class="font-xssss fw-600 text-grey-500 d-inline-block ml-1">HTML5</span>
-            <span class="font-xssss fw-600 text-grey-500 d-inline-block ml-1">Jquery</span>
-            <span class="dot ml-2 mr-2 d-inline-block btn-round-xss bg-grey"></span>
-            <span class="font-xssss fw-700 text-primary d-inline-block ml-0 "><b>Follow Author</b></span>
-          </div>
-          <div class="card d-block border-0 bg-transparent dark-bg-transparent">
-            <ul class="memberlist mt-0 mb-2 ml-0">
-              <li class="w20"><a href="#"><img src="../assets/images/user-6.png" alt="user" class="w40 d-inline-block"></a></li>
-              <li class="w20"><a href="#"><img src="../assets/images/user-7.png" alt="user" class="w40 d-inline-block"></a></li>
-              <li class="w20"><a href="#"><img src="../assets/images/user-8.png" alt="user" class="w40 d-inline-block"></a></li>
-              <li class="w20"><a href="#"><img src="../assets/images/user-3.png" alt="user" class="w40 d-inline-block"></a></li>
-              <li class="w20"><a href="#"><img src="../assets/images/user-5.png" alt="user" class="w40 d-inline-block"></a></li>
-              <li class="w20"><a href="#"><img src="../assets/images/user-4.png" alt="user" class="w40 d-inline-block"></a></li>
+              <li class="bg-transparent list-group-item pl-0"><figure class="avatar float-left mb-0 mr-3"><img src="../assets/images/user-3.png" alt="image" class="w45"></figure><h3 class="fw-700 mb-0 mt-1"><a class="font-xsss text-grey-900 text-dark d-block" href="chat.html">Hurin Seary</a></h3> <span class="d-block">Online</span> <span class="badge badge-danger text-white badge-pill"><i class="feather-phone-incoming"></i></span> </li>
+              <li class="bg-transparent list-group-item pl-0"><figure class="avatar float-left mb-0 mr-3"><img src="../assets/images/user-2.png" alt="image" class="w45"></figure><h3 class="fw-700 mb-0 mt-1"><a class="font-xsss text-grey-900 text-dark d-block" href="chat.html">Victor Exrixon</a></h3> <span class="d-block">Online</span></li>
+              <li class="bg-transparent list-group-item pl-0"><figure class="avatar float-left mb-0 mr-3"><img src="../assets/images/user-8.png" alt="image" class="w45"></figure><h3 class="fw-700 mb-0 mt-1"><a class="font-xsss text-grey-900 text-dark d-block" href="chat.html">Surfiya Zakir</a></h3> <span class="d-block">Working</span></li>
+              <li class="bg-transparent list-group-item pl-0"><figure class="avatar float-left mb-0 mr-3"><img src="../assets/images/user-4.png" alt="image" class="w45"></figure><h3 class="fw-700 mb-0 mt-1"><a class="font-xsss text-grey-900 text-dark d-block" href="chat.html">Goria Coast</a></h3> <span class="d-block">Working</span></li>
 
-              <li class="pl-4 w-auto"><a href="#" class="fw-500 text-grey-500 font-xssss">Member already downloaded</a></li>
+              <li class="bg-transparent list-group-item pl-0"><figure class="avatar float-left mb-0 mr-3"><img src="../assets/images/user-3.png" alt="image" class="w45"></figure><h3 class="fw-700 mb-0 mt-1"><a class="font-xsss text-grey-900 text-dark d-block" href="chat.html">Hurin Seary</a></h3> <span class="d-block">Offline</span></li>
+              <li class="bg-transparent list-group-item pl-0"><figure class="avatar float-left mb-0 mr-3"><img src="../assets/images/user-8.png" alt="image" class="w45"></figure><h3 class="fw-700 mb-0 mt-1"><a class="font-xsss text-grey-900 text-dark d-block" href="chat.html">Surfiya Zakir</a></h3> <span class="d-block">Offline</span></li>
+              <li class="bg-transparent list-group-item pl-0"><figure class="avatar float-left mb-0 mr-3"><img src="../assets/images/user-4.png" alt="image" class="w45"></figure><h3 class="fw-700 mb-0 mt-1"><a class="font-xsss text-grey-900 text-dark d-block" href="chat.html">Goria Coast</a></h3> <span class="d-block">Offline</span></li>
+
+              <li class="bg-transparent list-group-item pl-0"><figure class="avatar float-left mb-0 mr-3"><img src="../assets/images/user-3.png" alt="image" class="w45"></figure><h3 class="fw-700 mb-0 mt-1"><a class="font-xsss text-grey-900 text-dark d-block" href="chat.html">Hurin Seary</a></h3> <span class="d-block">Offline</span></li>
 
             </ul>
           </div>
-
         </div>
-        <div class="col-xl-4 col-xxl-3">
-          <div class="card w-100 d-block chat-body p-0 border-0 shadow-xss rounded-lg mb-3 position-relative">
-            <div class="messages-content scroll-bar p-3">
-              <div class="message-item">
-                <div class="message-user">
-                  <figure class="avatar">
-                    <img src="../assets/images/user-9.png" alt="image">
-                  </figure>
-                  <div>
-                    <h5 class="font-xssss mt-2">Byrom Guittet</h5>
-                    <div class="time">01:35 PM</div>
-                  </div>
-                </div>
-                <div class="message-wrap shadow-none">I'm fine, how are you 😃</div>
-              </div>
 
-              <div class="message-item">
-                <div class="message-user">
-                  <figure class="avatar">
-                    <img src="../assets/images/user-1.png" alt="image">
-                  </figure>
-                  <div>
-                    <h5 class="font-xssss mt-2">Byrom Guittet</h5>
-                    <div class="time">01:35 PM<i class="ti-double-check text-info"></i></div>
-                  </div>
-                </div>
-                <div class="message-wrap shadow-none">I want those files for you. I want you to send 1 PDF and 1 image file.</div>
-              </div>
-
-              <div class="message-item">
-                <div class="message-user">
-                  <figure class="avatar">
-                    <img src="../assets/images/user-9.png" alt="image">
-                  </figure>
-                  <div>
-                    <h5 class="font-xssss mt-2">Byrom Guittet</h5>
-                    <div class="time">01:35 PM</div>
-                  </div>
-                </div>
-                <div class="message-wrap shadow-none">I've found some cool photos for our travel app.</div>
-              </div>
-
-              <div class="message-item outgoing-message">
-                <div class="message-user">
-                  <figure class="avatar">
-                    <img src="../assets/images/user-1.png" alt="image">
-                  </figure>
-                  <div>
-                    <h5>You</h5>
-                    <div class="time">01:35 PM<i class="ti-double-check text-info"></i></div>
-                  </div>
-                </div>
-                <div class="message-wrap">Hey mate! How are things going ?</div>
-              </div>
-
-              <div class="message-item">
-                <div class="message-user">
-                  <figure class="avatar">
-                    <img src="../assets/images/user-9.png" alt="image">
-                  </figure>
-                  <div>
-                    <h5 class="font-xssss mt-2">Byrom Guittet</h5>
-                    <div class="time">01:35 PM</div>
-                  </div>
-                </div>
-                <div class="message-wrap shadow-none">I'm fine, how are you 😃</div>
-              </div>
-
-              <div class="message-item">
-                <div class="message-user">
-                  <figure class="avatar">
-                    <img src="../assets/images/user-1.png" alt="image">
-                  </figure>
-                  <div>
-                    <h5 class="font-xssss mt-2">Byrom Guittet</h5>
-                    <div class="time">01:35 PM<i class="ti-double-check text-info"></i></div>
-                  </div>
-                </div>
-                <div class="message-wrap shadow-none">I want those files for you. I want you to send 1 PDF and 1 image file.</div>
-              </div>
-
-              <div class="message-item">
-                <div class="message-user">
-                  <figure class="avatar">
-                    <img src="../assets/images/user-9.png" alt="image">
-                  </figure>
-                  <div>
-                    <h5 class="font-xssss mt-2">Byrom Guittet</h5>
-                    <div class="time">01:35 PM</div>
-                  </div>
-                </div>
-                <div class="message-wrap shadow-none">I've found some cool photos for our travel app.</div>
-              </div>
-
-            </div>
-            <form class="chat-form position-absolute bottom-0 w-100 left-0 bg-white z-index-1 p-3 shadow-xs theme-dark-bg ">
-              <button class="bg-grey float-left"><i class="ti-microphone text-white"></i></button>
-              <div class="form-group"><input type="text" placeholder="Start typing.."></div>
-              <button class="bg-current"><i class="ti-arrow-right text-white"></i></button>
-            </form>
-          </div>
-        </div>
       </div>
-    </div>
-    <div class="middle-sidebar-right right-scroll-bar">
-      <div class="middle-sidebar-right-content">
-
-        <div class="card overflow-hidden subscribe-widget p-3 mb-3 rounded-xxl border-0">
-          <div class="card-body p-2 d-block text-center bg-no-repeat bg-image-topcenter" style="background-image: url(../assets/images/user-pattern.png);">
-            <a href="#" class="position-absolute right-0 mr-4" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="feather-edit text-grey-500 font-xs"></i></a>
-            <div class="dropdown-menu dropdown-menu-right p-4 rounded-xxl border-0 shadow-lg" aria-labelledby="dropdownMenu2">
-              <div class="card-body p-0 d-flex">
-                <i class="feather-bookmark text-grey-500 mr-3 font-lg"></i>
-                <h4 class="fw-600 text-grey-900 font-xssss mt-0 mr-4">Save Link <span class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Add this to your saved items</span></h4>
-              </div>
-              <div class="card-body p-0 d-flex mt-2">
-                <i class="feather-alert-circle text-grey-500 mr-3 font-lg"></i>
-                <h4 class="fw-600 text-grey-900 font-xssss mt-0 mr-4">Hide Post <span class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Save to your saved items</span></h4>
-              </div>
-              <div class="card-body p-0 d-flex mt-2">
-                <i class="feather-alert-octagon text-grey-500 mr-3 font-lg"></i>
-                <h4 class="fw-600 text-grey-900 font-xssss mt-0 mr-4">Hide all from Group <span class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Save to your saved items</span></h4>
-              </div>
-              <div class="card-body p-0 d-flex mt-2">
-                <i class="feather-lock text-grey-500 mr-3 font-lg"></i>
-                <h4 class="fw-600 mb-0 text-grey-900 font-xssss mt-0 mr-4">Unfollow Group <span class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Save to your saved items</span></h4>
-              </div>
-            </div>
-            <figure class="avatar ml-auto mr-auto mb-0 mt-2 w90"><img src="../assets/images/user-12.png" alt="image" class="float-right shadow-sm rounded-circle w-100"></figure>
-            <div class="clearfix"></div>
-            <h2 class="text-black font-xss lh-3 fw-700 mt-3 mb-1">Hendrix Stamp</h2>
-            <h4 class="text-grey-500 font-xssss mt-0"><span class="d-inline-block bg-success btn-round-xss m-0"></span> Available</h4>
-            <div class="clearfix"></div>
-            <div class="col-12 text-center mt-4 mb-2">
-              <a href="message.html" class="p-0 ml-1 btn btn-round-md rounded-xl bg-lightblue"><i class="text-current ti-comment-alt font-sm"></i></a>
-              <a href="login.html" class="p-0 ml-1 btn btn-round-md rounded-xl bg-lightblue"><i class="text-current ti-lock font-sm"></i></a>
-              <a href="#" class="p-0 btn p-2 lh-24 w100 ml-1 ls-3 d-inline-block rounded-xl bg-current font-xsssss fw-700 ls-lg text-white">FOLLOW</a>
-            </div>
-            <ul class="list-inline border-0 mt-4">
-              <li class="list-inline-item text-center mr-4"><h4 class="fw-700 font-md">500+ <span class="font-xsssss fw-500 mt-1 text-grey-500 d-block">Connections</span></h4></li>
-              <li class="list-inline-item text-center mr-4"><h4 class="fw-700 font-md">88.7 k <span class="font-xsssss fw-500 mt-1 text-grey-500 d-block">Follower</span></h4></li>
-              <li class="list-inline-item text-center"><h4 class="fw-700 font-md">1,334 <span class="font-xsssss fw-500 mt-1 text-grey-500 d-block">Followings</span></h4></li>
-            </ul>
-
-            <div class="col-12 pl-0 mt-4 text-left">
-              <h4 class="text-grey-800 font-xsss fw-700 mb-3 d-block">My Skill <a href="#"><i class="ti-angle-right font-xsssss text-grey-700 float-right "></i></a></h4>
-              <div class="carousel-card owl-carousel owl-theme overflow-visible nav-none">
-                <div class="item"><a href="#" class="btn-round-xxxl border bg-greylight"><img src="../assets/images/download1.png" alt="icon" class="p-3"></a></div>
-                <div class="item"><a href="#" class="btn-round-xxxl border bg-greylight"><img src="../assets/images/download2.png" alt="icon" class="p-3"></a></div>
-                <div class="item"><a href="#" class="btn-round-xxxl border bg-greylight"><img src="../assets/images/download4.png" alt="icon" class="p-3"></a></div>
-                <div class="item"><a href="#" class="btn-round-xxxl border bg-greylight"><img src="../assets/images/download3.png" alt="icon" class="p-3"></a></div>
-                <div class="item"><a href="#" class="btn-round-xxxl border bg-greylight"><img src="../assets/images/download1.png" alt="icon" class="p-3"></a></div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="card theme-light-bg overflow-hidden rounded-xxl border-0 mb-3">
-          <div class="card-body d-flex justify-content-between align-items-end p-4">
-            <div>
-              <h4 class="font-xsss text-grey-900 mb-2 d-flex align-items-center justify-content-between mt-2 fw-700">
-                Dark Mode
-              </h4>
-            </div>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input dark-mode-switch" id="darkmodeswitch">
-              <label class="custom-control-label bg-success" for="darkmodeswitch"></label>
-            </div>
-
-          </div>
-        </div>
       </div>
-    </div>
-    <button class="btn btn-circle text-white btn-neutral sidebar-right">
-      <i class="ti-angle-left"></i>
-    </button>
+      </div>
+<!--    <button class="btn btn-circle text-white btn-neutral sidebar-right">-->
+<!--      <i class="ti-angle-left"></i>-->
+<!--    </button>-->
 
 </template>
 

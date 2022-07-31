@@ -29,7 +29,7 @@
           <li class="logo d-none d-xl-block d-lg-block"></li>
           <li><a href="/setting" :class="menuId==10?'active':''" class="nav-content-bttn open-font h-auto pt-2 pb-2"><i class="font-sm feather-settings mr-3 text-grey-500"></i><span>设置</span></a></li>
 <!--          <li><a href="default-analytics.html" class="nav-content-bttn open-font h-auto pt-2 pb-2"><i class="font-sm feather-pie-chart mr-3 text-grey-500"></i><span>Analytics</span></a></li>-->
-          <li><a href="message.html" class="nav-content-bttn open-font h-auto pt-2 pb-2"><i class="font-sm feather-message-square mr-3 text-grey-500"></i><span>聊天</span><span class="circle-count bg-warning mt-0">23</span></a></li>
+<!--          <li><a href="message.html" class="nav-content-bttn open-font h-auto pt-2 pb-2"><i class="font-sm feather-message-square mr-3 text-grey-500"></i><span>聊天</span><span class="circle-count bg-warning mt-0">23</span></a></li>-->
 
         </ul>
       </div>
@@ -48,7 +48,7 @@ export default {
   name: "Left",
   mounted() {
     //useStore().commit("Setting",1)
-    console.log("left current menuId:" , this.$store.getters.getMenuId)
+    console.log("left current menuId:" , this.$store.getters.GET_MENU_ID)
 
     // useStore().watch()
 

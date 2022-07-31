@@ -6,6 +6,7 @@
 
         <div class="card-body p-lg-5 p-4 w-100 border-0">
           <div class="row">
+
             <div class="col-lg-12">
               <h4 class="mb-4 font-lg fw-700 mont-font mb-5">Settings</h4>
               <div class="nav-caption fw-600 font-xssss text-grey-500 mb-2">Genaral</div>

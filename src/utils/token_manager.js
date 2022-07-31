@@ -9,6 +9,7 @@ let TokenManager  = {
         localStorage.setItem("token",data);
     },
     Clear:function (){
+        console.log("TokenManager localStorage.clear.");
         localStorage.clear();
     },
 }

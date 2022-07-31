@@ -1,12 +1,9 @@
 <template>
-
   <div class="middle-sidebar-left">
     <div class="middle-wrap">
       <div class="card w-100 border-0 bg-white shadow-xs p-0 mb-4">
 
-        <div class="card-body p-lg-5 p-4 w-100 border-0">
           <div class="row">
-
 
 
             <div class="col-sm-12">
@@ -80,7 +77,7 @@
                           </div>
                         </td>
                         <td>
-                          <img class="rounded-circle img-fluid avatar-40 mr-2" src="../assets/images/43.png" alt="profile"> post report
+                          <img class="rounded-circle img-fluid avatar-40 mr-2" src="../assets/images/SocialV/page-img/43.png" alt="profile"> post report
                         </td>
                         <td>Document</td>
                         <td>
@@ -92,8 +89,8 @@
                         </td>
                         <td>
                           <div class="flex align-items-center list-user-action">
-                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Download" href="#"><i class="feather-download"></i></a>
-                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="#"><i class="feather-delete"></i></a>
+                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Download" href="#"><i class="ri-download-line"></i></a>
+                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="#"><i class="ri-delete-bin-line"></i></a>
                           </div>
                         </td>
                       </tr>
@@ -104,7 +101,7 @@
                           </div>
                         </td>
                         <td>
-                          <img class="rounded-circle img-fluid avatar-40 mr-2" src="../assets/images/44.png" alt="profile"> usages
+                          <img class="rounded-circle img-fluid avatar-40 mr-2" src="../assets/images/SocialV/page-img/44.png" alt="profile"> usages
                         </td>
                         <td>Document</td>
                         <td>
@@ -116,8 +113,8 @@
                         </td>
                         <td>
                           <div class="flex align-items-center list-user-action">
-                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Download" href="#"><i class="feather-download"></i></a>
-                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="#"><i class="feather-delete"></i></a>
+                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Download" href="#"><i class="ri-download-line"></i></a>
+                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="#"><i class="ri-delete-bin-line"></i></a>
                           </div>
                         </td>
                       </tr>
@@ -128,7 +125,7 @@
                           </div>
                         </td>
                         <td>
-                          <img class="rounded-circle img-fluid avatar-40 mr-2" src="../assets/images/45.png" alt="profile"> Images file
+                          <img class="rounded-circle img-fluid avatar-40 mr-2" src="../assets/images/SocialV/page-img/45.png" alt="profile"> Images file
                         </td>
                         <td>Slide</td>
                         <td>
@@ -140,8 +137,8 @@
                         </td>
                         <td>
                           <div class="flex align-items-center list-user-action">
-                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Download" href="#"><i class="feather-download"></i></a>
-                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="#"><i class="feather-delete"></i></a>
+                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Download" href="#"><i class="ri-download-line"></i></a>
+                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="#"><i class="ri-delete-bin-line"></i></a>
                           </div>
                         </td>
                       </tr>
@@ -152,7 +149,7 @@
                           </div>
                         </td>
                         <td>
-                          <img class="rounded-circle img-fluid avatar-40 mr-2" src="../assets/images/46.png" alt="profile"> total comments
+                          <img class="rounded-circle img-fluid avatar-40 mr-2" src="../assets/images/SocialV/page-img/46.png" alt="profile"> total comments
                         </td>
                         <td>Document</td>
                         <td>
@@ -164,8 +161,8 @@
                         </td>
                         <td>
                           <div class="flex align-items-center list-user-action">
-                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Download" href="#"><i class="feather-download"></i></a>
-                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="#"><i class="feather-delete"></i></a>
+                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Download" href="#"><i class="ri-download-line"></i></a>
+                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="#"><i class="ri-delete-bin-line"></i></a>
                           </div>
                         </td>
                       </tr>
@@ -176,7 +173,7 @@
                           </div>
                         </td>
                         <td>
-                          <img class="rounded-circle img-fluid avatar-40 mr-2" src="../assets/images/47.png" alt="profile"> popular events
+                          <img class="rounded-circle img-fluid avatar-40 mr-2" src="../assets/images/SocialV/page-img/47.png" alt="profile"> popular events
                         </td>
                         <td>Pdf</td>
                         <td>
@@ -188,8 +185,8 @@
                         </td>
                         <td>
                           <div class="flex align-items-center list-user-action">
-                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Download" href="#"><i class="feather-download"></i></a>
-                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="#"><i class="feather-delete"></i></a>
+                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Download" href="#"><i class="ri-download-line"></i></a>
+                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="#"><i class="ri-delete-bin-line"></i></a>
                           </div>
                         </td>
                       </tr>
@@ -200,7 +197,7 @@
                           </div>
                         </td>
                         <td>
-                          <img class="rounded-circle img-fluid avatar-40 mr-2" src="../assets/images/43.png" alt="profile"> todo list
+                          <img class="rounded-circle img-fluid avatar-40 mr-2" src="../assets/images/SocialV/page-img/43.png" alt="profile"> todo list
                         </td>
                         <td>excel</td>
                         <td>
@@ -212,8 +209,8 @@
                         </td>
                         <td>
                           <div class="flex align-items-center list-user-action">
-                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Download" href="#"><i class="feather-download"></i></a>
-                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="#"><i class="feather-delete"></i></a>
+                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Download" href="#"><i class="ri-download-line"></i></a>
+                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="#"><i class="ri-delete-bin-line"></i></a>
                           </div>
                         </td>
                       </tr>
@@ -224,7 +221,7 @@
                           </div>
                         </td>
                         <td>
-                          <img class="rounded-circle img-fluid avatar-40 mr-2" src="../assets/images/45.png" alt="profile"> music list
+                          <img class="rounded-circle img-fluid avatar-40 mr-2" src="../assets/images/SocialV/page-img/45.png" alt="profile"> music list
                         </td>
                         <td>pdf</td>
                         <td>
@@ -236,8 +233,8 @@
                         </td>
                         <td>
                           <div class="flex align-items-center list-user-action">
-                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Download" href="#"><i class="feather-download"></i></a>
-                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="#"><i class="feather-delete"></i></a>
+                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Download" href="#"><i class="ri-download-line"></i></a>
+                            <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="#"><i class="ri-delete-bin-line"></i></a>
                           </div>
                         </td>
                       </tr>
@@ -249,20 +246,13 @@
             </div>
 
 
-
-
-
-
-
           </div>
 
 
-        </div>
       </div>
 
     </div>
   </div>
-
 </template>
 
 
@@ -279,8 +269,12 @@ export default {
 };
 </script>
 
-<stype>
+<style>
 
-@import "assets/css/style2.css";
+/*@import "../assets/css/SocialV/bootstrap.min.css";*/
+/*@import "../assets/css/SocialV/responsive.css";*/
+/*@import "../assets/css/SocialV/style2.css";*/
 
-</stype>
+@import "../assets/css/SocialV/typography.css";
+
+</style>
