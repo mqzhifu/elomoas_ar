@@ -57,7 +57,7 @@ export default {
   mounted() {
     // alert(this.$menuId);
     // useStore().state.menuId = 10;
-    useStore().commit("Setting",10)
+    useStore().commit("SET_MENU_ID",10)
   },
 };
 </script>

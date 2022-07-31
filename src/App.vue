@@ -4,32 +4,47 @@
 <!--    <router-link to="/">Home</router-link> |-->
 <!--    <router-link to="/about">About</router-link>-->
 <!--  </nav>-->
-<div id="aa" >
+  <div v-if="!token" >
 
-  <div class="preloader"></div>
-
-
-  <div class="main-wrapper">
-    <v-left></v-left>
-    <!-- main content -->
-    <div class="main-content">
-      <v-header></v-header>
-      <div class="middle-sidebar-bottom bg-lightblue theme-dark-bg">
-          <router-view />
+    <div class="preloader"></div>
+    <div class="main-wrapper">
+      <v-left></v-left>
+      <!-- main content -->
+      <div class="main-content">
+        <v-header></v-header>
+        <div class="middle-sidebar-bottom bg-lightblue theme-dark-bg">
+            <router-view />
+        </div>
       </div>
+      <!-- main content -->
+      <v-footer></v-footer>
+
     </div>
-    <!-- main content -->
-
-
-    <v-footer></v-footer>
 
   </div>
 
-</div>
+  <div v-if="token">
+    login =========
+
+  </div>
 
 </template>
 
 <script>
+
+import {useStore} from "vuex";
+
+console.log("in App.vue")
+
+export default {
+  name: "Vue",
+  data:function (){
+    return {"token":this.$TokenManager.Get()}
+  },
+  mounted() {
+    // alert(this.$TokenManager.Get());
+  },
+};
 
 
 $(document).ready(function() {
@@ -51,176 +66,6 @@ $(document).ready(function() {
   }
 
   handlePreloader();
-
-
-  // $('.carousel-card').owlCarousel({
-  //   loop:false,
-  //   margin:10,
-  //   nav:false,
-  //   autoplay:false,
-  //   dots:false,
-  //   autoWidth:true
-  // })
-  //
-  // $('.course-slide').owlCarousel({
-  //   loop:true,
-  //   margin:10,
-  //   nav:true,
-  //   autoplay:false,
-  //   dots:true,
-  //   navText: ["<i class='ti-angle-left icon-nav'></i>","<i class='ti-angle-right icon-nav'></i>"],
-  //   items:1,
-  // })
-  //
-  // $('.category-card').owlCarousel({
-  //   loop:false,
-  //   margin:10,
-  //   nav:true,
-  //   autoplay:false,
-  //   dots:false,
-  //   navText:['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
-  //   autoWidth:true
-  // })
-  //
-  // $('.brand-slider').owlCarousel({
-  //   loop:true,
-  //   margin:15,
-  //   nav:false,
-  //   autoplay:false,
-  //   dots:false,
-  //   items:5,
-  //   responsive:{
-  //     0:{
-  //       items:2,
-  //     },
-  //     600:{
-  //       items:3,
-  //     },
-  //     1200:{
-  //       items:5,
-  //     }
-  //
-  //   }
-  // })
-  //
-  // $('.product-slider').owlCarousel({
-  //   loop:true,
-  //   margin:15,
-  //   // nav:true,
-  //   // navText: ["<i class='ti-angle-left icon-nav'></i>","<i class='ti-angle-right icon-nav'></i>"],
-  //   autoplay:true,
-  //   dots:false,
-  //   responsive:{
-  //     0:{
-  //       items:1,
-  //     },
-  //     600:{
-  //       items:1,
-  //     },
-  //     1200:{
-  //       items:2,
-  //     }
-  //
-  //   }
-  // })
-  //
-  // $('.feedback-slider').owlCarousel({
-  //   loop:true,
-  //   margin:15,
-  //   nav:true,
-  //   autoplay:false,
-  //   dots:false,
-  //   items:5,
-  //   navText:['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
-  //   responsive:{
-  //     0:{
-  //       items:1,
-  //     },
-  //     600:{
-  //       items:2,
-  //     },
-  //     1200:{
-  //       items:3,
-  //     }
-  //
-  //   }
-  // })
-  // $('.feedback-slider2').owlCarousel({
-  //   loop:true,
-  //   margin:15,
-  //   nav:true,
-  //   autoplay:false,
-  //   dots:false,
-  //   items:5,
-  //   navText:['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
-  //   responsive:{
-  //     0:{
-  //       items:1,
-  //     },
-  //     600:{
-  //       items:2,
-  //     },
-  //     1200:{
-  //       items:2,
-  //     }
-  //
-  //   }
-  // })
-  //
-  // $('.banner-slider').owlCarousel({
-  //   loop:true,
-  //   margin:15,
-  //   nav:true,
-  //   autoplay:false,
-  //   dots:true,
-  //   navText: ["<i class='ti-angle-left icon-nav'></i>","<i class='ti-angle-right icon-nav'></i>"],
-  //   responsive:{
-  //     0:{
-  //       items:1,
-  //     },
-  //     600:{
-  //       items:1,
-  //     },
-  //     1200:{
-  //       items:1,
-  //     }
-  //
-  //   }
-  // })
-  //
-  // $('.product-slider-6').owlCarousel({
-  //   loop:true,
-  //   margin:15,
-  //   nav:false,
-  //   autoplay:false,
-  //   dots:false,
-  //   items:5,
-  //   responsive:{
-  //     0:{
-  //       items:2,
-  //     },
-  //     600:{
-  //       items:3,
-  //     },
-  //     1200:{
-  //       items:6,
-  //     }
-  //
-  //   }
-  // });
-
-
-
-
-
-
-
-
-  // $(window).on('load',function(){
-  //   $('#ModalSubscribe').modal('show');
-  // });
-
-
 
 
   $('.add-wishlist').on('click', function() {
@@ -287,9 +132,6 @@ $(document).ready(function() {
       $('body').removeClass('theme-dark');
     }
   });
-
-
-
 
   $('.sidebar-right,.sidebar-layer').on('click', function() {
     $('.middle-sidebar-right').toggleClass('active-sidebar');

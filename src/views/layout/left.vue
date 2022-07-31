@@ -48,20 +48,20 @@ export default {
   name: "Left",
   mounted() {
     //useStore().commit("Setting",1)
-    console.log(1111 , this.$store.getters.getMenuId)
+    console.log("left current menuId:" , this.$store.getters.getMenuId)
 
     // useStore().watch()
 
   },
   computed:{
     menuId:function(){
-      return this.$store.getters.getMenuId;
+      return this.$store.getters.GET_MENU_ID;
     },
   },
   watch: {
     "menuId":function (){
-      console.log("watch menuId change:",this.$store.getters.getMenuId)
-      this.currMenuId = this.$store.getters.getMenuId
+      console.log("watch menuId change:",this.$store.getters.GET_MENU_ID)
+      this.currMenuId = this.$store.getters.GET_MENU_ID
     },
   },
 

@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import SettingView from "../views/setting"
 import VideoView from "@/views/video";
-import FileVie from "@/views/file";
+import FileView from "@/views/file";
+import LoginView from "@/views/login";
 const routes = [
   {
     path: "/",
@@ -22,12 +23,17 @@ const routes = [
   {
     path: "/file",
     name: "file",
-    component: FileVie,
+    component: FileView,
   },
   {
     path: "/video",
     name: "video",
     component: VideoView,
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: LoginView,
   },
   {
     path: "/setting",
