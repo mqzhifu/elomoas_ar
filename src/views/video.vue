@@ -6,10 +6,16 @@
 
 
         <div class="col-xl-10 ">
-          <div class="card border-0 mb-0 rounded-lg overflow-hidden live-stream bg-image-center bg-image-cover" style="background-image: url(../assets/../assets/../assets/images/video-bg.jpg);">
+          <div class="card border-0 mb-0 rounded-lg overflow-hidden live-stream bg-image-center bg-image-cover vbg" >
             <div class="card-body d-flex justify-content-start p-2 position-absolute top-0 w-100 bg-gradiant-top">
               <figure class="avatar mb-0 mt-0 overflow-hidden"><img src="../assets/../assets/../assets/images/user-1.png" alt="image" class="z-index-1 shadow-sm rounded-circle w40"></figure><h5 class="text-white mt-1 fw-700 ml-2 z-index-1 ">Cabe Deo <span class="d-block font-xsssss mt-1 fw-400 text-grey-300 z-index-1 ">2 hour</span></h5>
-              <span class="live-tag position-absolute right-15 mt-2 bg-danger p-2 z-index-1  rounded-lg text-white font-xsssss text-uppersace fw-700 ls-3">LIVE</span>
+<!--              <span class="live-tag position-absolute right-15 mt-2 bg-danger p-2 z-index-1  rounded-lg text-white font-xsssss text-uppersace fw-700 ls-3">LIVE</span>-->
+
+              <div class="position-absolute right-15 mt-2 p-2 z-index-1  rounded-lg  fw-700 ls-3">
+                <img src="../assets/images/video-bg-2.jpg" alt="image" class="w150 h200 rounded-3 position-relative z-index-1 shadow-xss">
+              </div>
+
+
             </div>
             <div class="card-body text-center p-2 position-absolute w-100 bottom-0 bg-gradiant-bottom">
               <a href="#" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 mr-0 z-index-1"><i class="feather-x text-white font-md"></i></a>
@@ -18,6 +24,7 @@
               <a href="#" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 z-index-1"><i class="ti-video-camera text-white font-md"></i></a>
               <a href="#" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 ml-0 z-index-1"><i class="feather-monitor text-white font-md"></i></a>
               <span class="p-2 bg-blur z-index-1 text-white fw-700 font-xssss rounded-lg right-15 position-absolute mb-4 bottom-0">44:00</span>
+              <span class="live-tag position-absolute left-15 mt-2 bottom-0 mb-4 bg-danger p-2 z-index-1 rounded-3 text-white font-xsssss text-uppersace fw-700 ls-3">LIVE</span>
             </div>
           </div>
         </div>
@@ -75,3 +82,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.vbg{
+  background-image: url(../assets/images/video-bg-1.jpg)
+}
+</style>
