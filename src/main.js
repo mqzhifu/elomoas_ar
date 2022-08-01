@@ -7,7 +7,7 @@ import left from "./views/layout/left"
 import footer from "./views/layout/footer"
 import TokenManager from "./utils/token_manager"
 import Server from "@/utils/server";
-
+import login from "@/views/login";
 
 console.log("in main.js")
 
@@ -22,4 +22,4 @@ var myVue = createApp(App)
 myVue.config.globalProperties.$TokenManager = TokenManager
 myVue.config.globalProperties.$Server = Server
 
-myVue.use(store).use(router).component("v-header",header).component("v-left",left).component("v-footer",footer).mount("#app");
+myVue.use(store).use(router).component("v-login",login).component("v-header",header).component("v-left",left).component("v-footer",footer).mount("#app");

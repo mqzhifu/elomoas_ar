@@ -25,7 +25,7 @@
   </div>
 
   <div v-if="token">
-    login =========
+    <v-login></v-login>
 
   </div>
 

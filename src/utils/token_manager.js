@@ -2,6 +2,7 @@ let TokenManager  = {
     Get :function(){
         var data = localStorage.getItem("token");
         console.log("TokenManager localStorage.getItem(token):",data);
+        return 1;
         return data;
     },
     Set:function(data){
