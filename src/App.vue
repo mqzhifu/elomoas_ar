@@ -4,7 +4,7 @@
 <!--    <router-link to="/">Home</router-link> |-->
 <!--    <router-link to="/about">About</router-link>-->
 <!--  </nav>-->
-  <div v-if="!token" >
+  <div v-if="token" >
 
     <div class="preloader"></div>
     <div class="main-wrapper">
@@ -24,7 +24,7 @@
 
   </div>
 
-  <div v-if="token">
+  <div v-if="!token">
     <v-login></v-login>
 
   </div>

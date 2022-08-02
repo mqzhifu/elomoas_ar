@@ -241,13 +241,14 @@
         else return 0
     };
     j.pwdStrong = function(a) {
-        var b = 0;
+        // var b = 0;
+        var b = 1;
         if (a.match(/[a-z]/g)) {
             b++
         }
-        if (a.match(/[A-Z]/g)) {
-            b++
-        }
+        // if (a.match(/[A-Z]/g)) {
+        //     b++
+        // }
         if (a.match(/[0-9]/g)) {
             b++
         }
@@ -272,7 +273,8 @@
         phone: false
     };
     window.verifyCheck = $.verifyCheck = j
-})(jQuery); (function($) {
+})(jQuery);
+(function($) {
     var f;
     var g = function() {
         return (new require())._init()
@@ -330,7 +332,8 @@
     };
     require.defaults = {};
     window.togglePwd = $.togglePwd = g
-})(jQuery); (function($) {
+})(jQuery);
+(function($) {
     var b, timerC, opt;
     var d = function(a) {
         a = $.extend(require.defaults, a || {});
@@ -371,320 +374,319 @@
     };
     window.countdown = $.countdown = d
 })(jQuery);
-$(function() {
-    togglePwd();
-    verifyCheck();
-    $('body').on("keyup", "#password",
-        function() {
-            var t = $(this).val(),
-                o = $(this).parent().find(".strength");
-            if (t.length >= 6) {
-                o.show();
-                var l = verifyCheck.pwdStrong(t);
-                o.find("b i").removeClass("on");
-                for (var i = 0; i < l; i++) {
-                    o.find("b i").eq(i).addClass("on")
+
+$(document).ready(function() {
+    $(function () {
+        togglePwd();
+        verifyCheck();
+        $('body').on("keyup", "#password",
+            function () {
+                var t = $(this).val(),
+                    o = $(this).parent().find(".strength");
+                if (t.length >= 6) {
+                    o.show();
+                    var l = verifyCheck.pwdStrong(t);
+                    o.find("b i").removeClass("on");
+                    for (var i = 0; i < l; i++) {
+                        o.find("b i").eq(i).addClass("on")
+                    }
+                } else {
+                    o.hide()
                 }
-            } else {
-                o.hide()
-            }
-        })
+            })
+    });
+
+
+    /* tab 扫码二维码登录方式 */
+
+    var regTop = document.getElementById('reg-top');
+    var normal = document.getElementById('normal');
+    var nopw = document.getElementById('nopw');
+    var saoma = document.getElementById('qrcode');
+    var screen = document.getElementById('screen');
+    var rc = document.getElementById('rc');
+    var lc = document.getElementById('lc');
+    var sm = document.getElementById('sm');
+
+    var rcFlag = true;
+    var lcFlag = false;
+
+    normal.onclick = function () {
+        rc.style.display = "block";
+        lc.style.display = "none";
+        sm.style.display = "none";
+        regTop.style.display = "block";
+        nopw.style.borderBottom = "none";
+        normal.style.borderBottom = "1px solid #ff552e";
+        nopw.style.color = "#666";
+        normal.style.color = "#ff552e";
+        rcFlag = true;
+        lcFlag = false;
+
+    }
+
+    nopw.onclick = function () {
+        rc.style.display = "none";
+        lc.style.display = "block";
+        sm.style.display = "none";
+        regTop.style.display = "block";
+        nopw.style.borderBottom = "1px solid #ff552e";
+        normal.style.borderBottom = "none";
+        nopw.style.color = "#ff552e";
+        normal.style.color = "#666";
+        rcFlag = false;
+        lcFlag = true;
+    }
+
+    saoma.onclick = function () {
+        rc.style.display = "none";
+        lc.style.display = "none";
+        sm.style.display = "block";
+        regTop.style.display = "none";
+    }
+    screen.onclick = function () {
+        regTop.style.display = "block";
+        sm.style.display = "none";
+        if (rcFlag) {
+            rc.style.display = "block";
+            return;
+        } else {
+            rc.style.display = "none";
+        }
+        if (lcFlag) {
+            lc.style.display = "block";
+            return;
+        } else {
+            lc.style.display = "none";
+        }
+    }
+    //
+    //
+    // var rcInnerNum = document.getElementById('rc-inner-num');
+    // var rcinnerText = rcInnerNum.getElementsByTagName('span')[0];
+    //
+    //
+    // var rcInnerVirity = document.getElementById('rc-inner-virity');
+    // var rcInnerVirityText = rcInnerVirity.getElementsByTagName('span')[0];
+    //
+    // var inputPhone = document.getElementsByName('phone-num')[0];
+    // var inputPassword = document.getElementsByName('password')[0];
+    // var loginBtn = document.getElementById('login-btn');
+    //
+    //
+    // var nFlag = false;
+    // inputPhone.onblur = function () {
+    //     var reg = /^(1([358][0-9]|(47)|[7][0178]))[0-9]{8}$/;
+    //     var reg1 = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+    //     var reg2 = /^[\u4e00-\u9fa5_a-zA-Z0-9_]{4,10}$/i;
+    //     if (this.value == "") {
+    //         rcInnerNum.style.display = "block";
+    //         rcInnerVirity.style.display = "none";
+    //         return;
+    //     }
+    //     if (reg.test(this.value) || reg1.test(this.value) || reg2.test(this.value)) {
+    //
+    //         var value = $(this).val();
+    //         $.post('./js/login.php', {phone: value}, function (data) {
+    //             if (data == '0') {
+    //                 $('#rc-inner-num').show().text();
+    //                 $('#rc-inner-virity').hide();
+    //                 $('#rc-inner-num > span').text('用户名不存在，请重新输入！');
+    //             } else {
+    //                 $('.success').show();
+    //                 nFlag = true;
+    //             }
+    //         });
+    //         return;
+    //     } else {
+    //         rcInnerNum.style.display = "block";
+    //         rcInnerVirity.style.display = "none";
+    //     }
+    // }
+    //
+    // inputPhone.onfocus = function () {
+    //     rcInnerNum.style.display = "none";
+    //     $('.success').hide();
+    //     $('#rc-innerError').eq(0).hide();
+    // }
+    //
+    // var passFlag = false;
+    // inputPassword.onblur = function () {
+    //     if (this.value == "") {
+    //         if (nFlag) {
+    //             rcInnerVirity.style.display = "block";
+    //             rcInnerNum.style.display = "none";
+    //             rcInnerVirityText.innerText = "请输入密码";
+    //         }
+    //         return;
+    //     }
+    //     var reg = /((?=.*[a-z])(?=.*\d)|(?=[a-z])(?=.*[#@!~%^&*])|(?=.*\d)(?=.*[#@!~%^&*]))[a-z\d#@!~%^&*]{8,16}/i;
+    //     if (!reg.test(this.value)) {
+    //         rcInnerVirity.style.display = "block";
+    //         rcInnerVirityText.innerText = "密码为8-16位的字母或数字或特殊字符的结合";
+    //         rcInnerNum.style.display = "none";
+    //     } else {
+    //         passFlag = true;
+    //         return;
+    //     }
+    // }
+    //
+    // inputPassword.onfocus = function () {
+    //     rcInnerVirity.style.display = "none";
+    //     $('#rc-innerError').eq(0).hide();
+    // }
+    //
+    // loginBtn.onclick = function (e) {
+    //     stopDefault(e);
+    //     if (inputPhone.value == "") {
+    //         rcInnerNum.style.display = "block";
+    //         rcinnerText.innerText = "请输入昵称/邮箱/手机号码";
+    //         rcInnerVirity.style.display = "none";
+    //         return;
+    //     }
+    //     if (inputPassword.value == "") {
+    //         if (nFlag) {
+    //             rcInnerVirity.style.display = "block";
+    //             rcInnerNum.style.display = "none";
+    //         }
+    //         return;
+    //     }
+    //     if (passFlag && nFlag) {
+    //         var phone = inputPhone.value;
+    //         var pass = inputPassword.value;
+    //         $.post('./js/validate.php', {phone: phone, pass: pass}, function (data) {
+    //             if (data == '0') {
+    //                 $('#rc-innerError').eq(0).show();
+    //             } else {
+    //                 window.location.href = '../main/index.html';
+    //             }
+    //         });
+    //     }
+    // }
+    //
+    //
+    // var innerNum = document.getElementById('inner-num');
+    // var innerNumText = innerNum.getElementsByTagName('span')[0];
+    // var innerVirity = document.getElementById('inner-virity');
+    // var innerVirityText = innerVirity.getElementsByTagName('span')[0];
+    // var selectList = document.getElementById('country');
+    // var noPhoneNum = document.getElementsByName('phone-num')[1];
+    // var otp = document.getElementsByName('password')[1];
+    // var getcodeBtn = document.getElementById('getcode');
+    // var loginBtn1 = document.getElementById('login-btn1');
+    // var country = [
+    //     ' ',
+    // ];
+    //
+    // for (var i = 0; i < country.length; i++) {
+    //     var option = document.createElement('option');
+    //     option.innerText = country[i];
+    //     selectList.appendChild(option);
+    // }
+    //
+    // var npnFlag = false;
+    // noPhoneNum.onblur = function () {
+    //     var reg = /^(1([358][0-9]|(47)|[7][0178]))[0-9]{8}$/;
+    //     if (this.value == "") {
+    //         innerNum.style.display = "block";
+    //         innerNumText.innerText = "请输入手机号码";
+    //         innerVirity.style.display = "none";
+    //         return;
+    //     }
+    //     if (!reg.test(this.value)) {
+    //         innerNum.style.display = "block";
+    //         innerNumText.innerText = "请输入正确的手机号码";
+    //         innerVirity.style.display = "none";
+    //         return;
+    //     } else {
+    //         var value = $(this).val();
+    //         $.post('./js/login.php', {phone: value}, function (data) {
+    //             //console.log(data);
+    //             if (data == '0') {
+    //                 $('#inner-num').show().text();
+    //                 $('#inner-virity').hide();
+    //                 $('#inner-num > span').text('手机号码不存在,请重新输入！');
+    //             } else {
+    //                 $('.success').show();
+    //                 npnFlag = true;
+    //             }
+    //         });
+    //         return;
+    //     }
+    // }
+    //
+    // noPhoneNum.onfocus = function () {
+    //     innerNum.style.display = "none";
+    //     $('.success').hide();
+    // }
+    //
+    // var otpFlag = false;
+    // otp.onblur = function () {
+    //     var reg = /^\d{6}$/;
+    //     if (this.value == "") {
+    //         if (npnFlag) {
+    //             innerVirity.style.display = "block";
+    //             innerVirityText.innerText = "请输入验证码";
+    //             innerNum.style.display = "none";
+    //         }
+    //         return;
+    //     }
+    //     if (!reg.test(this.value)) {
+    //         if (npnFlag) {
+    //             innerVirity.style.display = "block";
+    //             innerVirityText.innerText = "验证码为6位数字";
+    //             innerNum.style.display = "none";
+    //         }
+    //     } else {
+    //         otpFlag = true;
+    //         return;
+    //     }
+    // }
+    //
+    // otp.onfocus = function () {
+    //     innerVirity.style.display = "none";
+    // }
+    //
+    // getcodeBtn.onclick = function (e) {
+    //     stopDefault(e);
+    //     if (npnFlag) {
+    //     } else {
+    //         innerNum.style.display = "block";
+    //         innerNumText.innerText = "请输入手机号码";
+    //         innerVirity.style.display = "none";
+    //         return;
+    //     }
+    // }
+    //
+    // loginBtn1.onclick = function (e) {
+    //     stopDefault(e);
+    //     if (noPhoneNum.value == "") {
+    //         innerNum.style.display = "block";
+    //         innerNumText.innerText = "请输入手机号码";
+    //         innerVirity.style.display = "none";
+    //         return;
+    //     }
+    //     if (otp.value == "") {
+    //         if (npnFlag) {
+    //             innerVirity.style.display = "block";
+    //             innerVirityText.innerText = "请输入验证码";
+    //             innerNum.style.display = "none";
+    //         }
+    //         return;
+    //     }
+    //     if (npnFlag && otpFlag) {
+    //         window.location.href = '../main/index.html';
+    //     }
+    //
+    // }
+    //
+    //
+    // function stopDefault(e) {
+    //     if (e && e.preventDefault) {
+    //         e.preventDefault();//非IE
+    //     } else {
+    //         window.event.returnValue = false;//IE
+    //         return false;
+    //     }
+    // }
 });
-
-
-/* tab 扫码二维码登录方式 */
-
-var regTop=document.getElementById('reg-top');
-var normal=document.getElementById('normal');
-var nopw=document.getElementById('nopw');
-var saoma=document.getElementById('qrcode');
-var screen=document.getElementById('screen');
-var rc=document.getElementById('rc');
-var lc=document.getElementById('lc');
-var sm=document.getElementById('sm');
-
-var rcFlag=true;
-var lcFlag=false;
-
-normal.onclick=function(){
-    rc.style.display="block";
-    lc.style.display="none";
-    sm.style.display="none";
-    regTop.style.display="block";
-    nopw.style.borderBottom="none";
-    normal.style.borderBottom="1px solid #ff552e";
-    nopw.style.color="#666";
-    normal.style.color="#ff552e";
-    rcFlag=true;
-    lcFlag=false;
-
-}
-
-nopw.onclick=function(){
-    rc.style.display="none";
-    lc.style.display="block";
-    sm.style.display="none";
-    regTop.style.display="block";
-    nopw.style.borderBottom="1px solid #ff552e";
-    normal.style.borderBottom="none";
-    nopw.style.color="#ff552e";
-    normal.style.color="#666";
-    rcFlag=false;
-    lcFlag=true;
-}
-
-saoma.onclick=function(){
-    rc.style.display="none";
-    lc.style.display="none";
-    sm.style.display="block";
-    regTop.style.display="none";
-}
-screen.onclick=function(){
-    regTop.style.display="block";
-    sm.style.display="none";
-    if(rcFlag){
-        rc.style.display="block";
-        return;
-    }else{
-        rc.style.display="none";
-    }
-    if(lcFlag){
-        lc.style.display="block";
-        return;
-    }else{
-        lc.style.display="none";
-    }
-}
-
-
-var rcInnerNum=document.getElementById('rc-inner-num');
-var rcinnerText=rcInnerNum.getElementsByTagName('span')[0];
-
-
-var rcInnerVirity=document.getElementById('rc-inner-virity');
-var rcInnerVirityText=rcInnerVirity.getElementsByTagName('span')[0];
-
-var inputPhone=document.getElementsByName('phone-num')[0];
-var inputPassword=document.getElementsByName('password')[0];
-var loginBtn=document.getElementById('login-btn');
-
-
-var nFlag=false;
-inputPhone.onblur=function(){
-    var reg=/^(1([358][0-9]|(47)|[7][0178]))[0-9]{8}$/;
-    var reg1=/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
-    var reg2=/^[\u4e00-\u9fa5_a-zA-Z0-9_]{4,10}$/i;
-    if(this.value==""){
-        rcInnerNum.style.display="block";
-        rcInnerVirity.style.display="none";
-        return;
-    }
-    if(reg.test(this.value)||reg1.test(this.value)||reg2.test(this.value)){
-
-        var value=$(this).val();
-        $.post('./js/login.php',{phone:value},function(data){
-            if(data=='0'){
-                $('#rc-inner-num').show().text();
-                $('#rc-inner-virity').hide();
-                $('#rc-inner-num > span').text('用户名不存在，请重新输入！');
-            }else{
-                $('.success').show();
-                nFlag=true;
-            }
-        });
-        return;
-    }else{
-        rcInnerNum.style.display="block";
-        rcInnerVirity.style.display="none";
-    }
-}
-
-inputPhone.onfocus=function(){
-    rcInnerNum.style.display="none";
-    $('.success').hide();
-    $('#rc-innerError').eq(0).hide();
-}
-
-var passFlag=false;
-inputPassword.onblur=function(){
-    if(this.value==""){
-        if(nFlag){
-            rcInnerVirity.style.display="block";
-            rcInnerNum.style.display="none";
-            rcInnerVirityText.innerText="请输入密码";
-        }
-        return;
-    }
-    var reg=/((?=.*[a-z])(?=.*\d)|(?=[a-z])(?=.*[#@!~%^&*])|(?=.*\d)(?=.*[#@!~%^&*]))[a-z\d#@!~%^&*]{8,16}/i;
-    if(!reg.test(this.value)){
-        rcInnerVirity.style.display="block";
-        rcInnerVirityText.innerText="密码为8-16位的字母或数字或特殊字符的结合";
-        rcInnerNum.style.display="none";
-    }else{
-        passFlag=true;
-        return;
-    }
-}
-
-inputPassword.onfocus=function(){
-    rcInnerVirity.style.display="none";
-    $('#rc-innerError').eq(0).hide();
-}
-
-loginBtn.onclick=function(e){
-    stopDefault(e);
-    if(inputPhone.value==""){
-        rcInnerNum.style.display="block";
-        rcinnerText.innerText="请输入昵称/邮箱/手机号码";
-        rcInnerVirity.style.display="none";
-        return;
-    }
-    if(inputPassword.value==""){
-        if(nFlag){
-            rcInnerVirity.style.display="block";
-            rcInnerNum.style.display="none";
-        }
-        return;
-    }
-    if(passFlag&&nFlag){
-        var phone = inputPhone.value;
-        var pass = inputPassword.value;
-        $.post('./js/validate.php',{phone:phone,pass:pass},function(data){
-            if(data=='0'){
-                $('#rc-innerError').eq(0).show();
-            }else{
-                window.location.href='../main/index.html';
-            }
-        });
-    }
-}
-
-
-var innerNum=document.getElementById('inner-num');
-var innerNumText=innerNum.getElementsByTagName('span')[0];
-var innerVirity=document.getElementById('inner-virity');
-var innerVirityText=innerVirity.getElementsByTagName('span')[0];
-var selectList=document.getElementById('country');
-var noPhoneNum=document.getElementsByName('phone-num')[1];
-var otp=document.getElementsByName('password')[1];
-var getcodeBtn=document.getElementById('getcode');
-var loginBtn1=document.getElementById('login-btn1');
-var country=[
-    ' ',
-];
-
-for(var i=0;i<country.length;i++){
-    var option=document.createElement('option');
-    option.innerText=country[i];
-    selectList.appendChild(option);
-}
-
-var npnFlag=false;
-noPhoneNum.onblur=function(){
-    var reg=/^(1([358][0-9]|(47)|[7][0178]))[0-9]{8}$/;
-    if(this.value==""){
-        innerNum.style.display="block";
-        innerNumText.innerText="请输入手机号码";
-        innerVirity.style.display="none";
-        return;
-    }
-    if(!reg.test(this.value)){
-        innerNum.style.display="block";
-        innerNumText.innerText="请输入正确的手机号码";
-        innerVirity.style.display="none";
-        return;
-    }else{
-        var value=$(this).val();
-        $.post('./js/login.php',{phone:value},function(data){
-            //console.log(data);
-            if(data=='0'){
-                $('#inner-num').show().text();
-                $('#inner-virity').hide();
-                $('#inner-num > span').text('手机号码不存在,请重新输入！');
-            }else{
-                $('.success').show();
-                npnFlag=true;
-            }
-        });
-        return;
-    }
-}
-
-noPhoneNum.onfocus=function(){
-    innerNum.style.display="none";
-    $('.success').hide();
-}
-
-var otpFlag=false;
-otp.onblur=function(){
-    var reg=/^\d{6}$/;
-    if(this.value==""){
-        if(npnFlag){
-            innerVirity.style.display="block";
-            innerVirityText.innerText="请输入验证码";
-            innerNum.style.display="none";
-        }
-        return;
-    }
-    if(!reg.test(this.value)){
-        if(npnFlag){
-            innerVirity.style.display="block";
-            innerVirityText.innerText="验证码为6位数字";
-            innerNum.style.display="none";
-        }
-    }else{
-        otpFlag=true;
-        return;
-    }
-}
-
-otp.onfocus=function(){
-    innerVirity.style.display="none";
-}
-
-getcodeBtn.onclick=function(e){
-    stopDefault(e);
-    if(npnFlag){
-    }else{
-        innerNum.style.display="block";
-        innerNumText.innerText="请输入手机号码";
-        innerVirity.style.display="none";
-        return;
-    }
-}
-
-loginBtn1.onclick=function(e){
-    stopDefault(e);
-    if(noPhoneNum.value==""){
-        innerNum.style.display="block";
-        innerNumText.innerText="请输入手机号码";
-        innerVirity.style.display="none";
-        return;
-    }
-    if(otp.value==""){
-        if(npnFlag){
-            innerVirity.style.display="block";
-            innerVirityText.innerText="请输入验证码";
-            innerNum.style.display="none";
-        }
-        return;
-    }
-    if(npnFlag&&otpFlag){
-        window.location.href='../main/index.html';
-    }
-
-}
-
-
-function stopDefault(e)
-{
-    if (e&&e.preventDefault)
-    {
-        e.preventDefault();//非IE
-    }
-    else
-    {
-        window.event.returnValue = false;//IE
-        return false;
-    }
-}

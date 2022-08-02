@@ -67,9 +67,9 @@ input {
     background-color: transparent;
 }
 
-::selection {
-    background: transparent;
-}
+/*::selection {*/
+/*    background: transparent;*/
+/*}*/
 
 ::-moz-selection {
     background: transparent;

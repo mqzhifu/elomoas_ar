@@ -24,11 +24,11 @@
             <!--账户密码登录-->
             <div class="register-con" id="rc">
               <div class="aui-register-form-item">
-                <input type="text" name="username" maxlength="20" plazceholder="账户名" class="txt03 f-r3 required" tabindex="3" data-valid="isNonEmpty||between:3-20||isUname" data-error="><i class='icon-tips'></i>您还没有输入账户名||<i class='icon-tips'></i>用户名长度3-20位||<i class='icon-tips'></i>只能输入字母、数字、且以中文或字母开头" id="adminNo">
+                <input type="text" name="username"   maxlength="20" placeholder="账户名" class="txt03 f-r3 required" tabindex="3" data-valid="isNonEmpty||between:3-20||isUname" data-error="><i class='icon-tips'></i>您还没有输入账户名||<i class='icon-tips'></i>用户名长度3-20位||<i class='icon-tips'></i>只能输入字母、数字、且以中文或字母开头" id="adminNo">
                 <label class="focus valid"></label>
               </div>
               <div class="aui-register-form-item">
-                <input type="password" name="password" placeholder="密码" id="password" maxlength="20" class="txt04 f-r3 required" tabindex="4" style="ime-mode:disabled;" onpaste="return  false" autocomplete="off" data-valid="isNonEmpty||between:6-20||level:2" data-error="><i class='icon-tips'></i>密码太短，最少6位||<i class='icon-tips'></i>密码长度6-20位||<i class='icon-tips'></i>密码太简单，有被盗风险，建议字母+数字的组合">
+                <input type="password" name="password"  placeholder="密码" id="password" maxlength="20" class="txt04 f-r3 required" tabindex="4" style="ime-mode:disabled;" onpaste="return  false" autocomplete="off" data-valid="isNonEmpty||between:6-20||level:2" data-error="><i class='icon-tips'></i>密码太短，最少6位||<i class='icon-tips'></i>密码长度6-20位||<i class='icon-tips'></i>密码太简单，有被盗风险，建议字母+数字的组合">
                 <label class="focus valid"></label>
 
               </div>
@@ -36,7 +36,7 @@
                 <p class="aui-for-pwd">
                   <a class="" href="#">忘记密码</a>
                 </p>
-                <input id="aui-btn-reg" class="aui-btn-reg" placeholder="" readonly="readonly" value="登录">
+                <input id="aui-btn-reg" class="aui-btn-reg" placeholder="" @click="login1" readonly="readonly" value="登录">
               </div>
               <div class="aui-protocol">
                 登录即同意
@@ -73,7 +73,7 @@
                 <label class="focus valid"></label>
               </div>
               <div class="aui-register-form-item">
-                <input id="aui-btn-reg1" class="aui-btn-reg" placeholder="" readonly="readonly" value="登录">
+                <input id="aui-btn-reg1" @click= "login2" class="aui-btn-reg" placeholder="" readonly="readonly" value="登录">
               </div>
               <div class="aui-protocol">
                 登录即同意
@@ -143,33 +143,81 @@
 export default {
   name: "Login",
   mounted() {
-
+    // var that = this;
+    // $("#aui-btn-reg").click(function (that) {
+    //   if (!verifyCheck._click()) return;
+    //   console.log("恭喜你！登录成功1")
+    //   // alert('恭喜你！登录成功1')
+    //   that.login()
+    //
+    // });
+    // $("#aui-btn-reg1").click(function (that) {
+    //   if (!verifyCheck._click()) return;
+    //   // alert('恭喜你！登录成功2')
+    //   console.log("恭喜你！登录成功2")
+    //   that.login()
+    // });
   },
+  methods:{
+    login1:function(){
+      if (!verifyCheck._click()) return;
+      this.login(1);
+    },
+    login2:function(){
+      if (!verifyCheck._click()) return;
+      this.login(2);
+    },
+    login:function(type){
+      if(type == 1){
+        var username = $("#adminNo").val();
+        var password = $("#password").val();
+        var loginFormData = {"username":username,"password":password};
+        var p = this.$Server.request("/base/login",loginFormData);
+
+        p.then((res)=>{
+          if (res.code == 200) {
+            alert("登陆成功");
+            console.log(res);
+            this.$TokenManager.Set(res.data.token);
+          }else{
+            var msg = "登陆失败,"+res.msg;
+            alert(msg);
+            console.log(msg);
+            return false;
+          }
+        });
+
+      }else{
+
+      }
+
+    },
+  }
+
 };
 
-$(document).ready(function(){
+// $(document).ready(function(){
   require("./../assets/js/login.js");
-});
+// });
+
+// $(function () {
+//   $("#aui-btn-reg").click(function () {
+//     if (!verifyCheck._click()) return;
+//     alert('恭喜你！登录成功')
+//
+//   });
+//   $("#aui-btn-reg1").click(function () {
+//     if (!verifyCheck._click()) return;
+//     alert('恭喜你！登录成功')
+//
+//   });
+// });
 
 
 </script>
 
 
-<!--<script type="text/javascript" src="js/login.js"></script>-->
-<!--<script type="text/javascript">-->
-<!--$(function () {-->
-<!--  $("#aui-btn-reg").click(function () {-->
-<!--    if (!verifyCheck._click()) return;-->
-<!--    alert('恭喜你！登录成功')-->
 
-<!--  });-->
-<!--  $("#aui-btn-reg1").click(function () {-->
-<!--    if (!verifyCheck._click()) return;-->
-<!--    alert('恭喜你！登录成功')-->
-
-<!--  });-->
-<!--});-->
-<!--</script>-->
 
 <style>
 
