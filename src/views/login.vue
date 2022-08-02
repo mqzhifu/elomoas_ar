@@ -136,9 +136,6 @@
 
 
 <script>
-// import {useStore} from "vuex"
-// import myLogin from "./../assets/js/login.js"
-
 
 export default {
   name: "Login",
@@ -179,6 +176,7 @@ export default {
             alert("登陆成功");
             console.log(res);
             this.$TokenManager.Set(res.data.token);
+            this.gotoHome();
           }else{
             var msg = "登陆失败,"+res.msg;
             alert(msg);
@@ -191,6 +189,9 @@ export default {
 
       }
 
+    },
+    gotoHome : function(){
+      location.href = "/";
     },
   }
 
@@ -219,7 +220,7 @@ export default {
 
 
 
-<style>
+<style scoped>
 
 @import "../assets/css/login_style.css";
 

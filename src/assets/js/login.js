@@ -1,3 +1,4 @@
+
 (function($) {
     var h, timerC = 60,
         opt;
@@ -376,6 +377,10 @@
 })(jQuery);
 
 $(document).ready(function() {
+    var regTop = document.getElementById('reg-top');
+    if (typeof (regTop) == "undefined" || !regTop){
+        return;
+    }
     $(function () {
         togglePwd();
         verifyCheck();
@@ -690,3 +695,5 @@ $(document).ready(function() {
     //     }
     // }
 });
+
+

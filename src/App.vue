@@ -42,6 +42,10 @@ export default {
   data:function (){
     return {"token":this.$TokenManager.Get()}
   },
+  created() {
+    // alert(this.$TokenManager.Get());
+    // globalToken = this.$TokenManager.Get();
+  },
   mounted() {
     // alert(this.$TokenManager.Get());
   },

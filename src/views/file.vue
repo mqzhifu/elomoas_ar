@@ -269,12 +269,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 /*@import "../assets/css/SocialV/bootstrap.min.css";*/
 /*@import "../assets/css/SocialV/responsive.css";*/
 /*@import "../assets/css/SocialV/style2.css";*/
 
-@import "../assets/css/SocialV/typography.css";
+/*@import "../assets/css/SocialV/typography.css";*/
 
 </style>

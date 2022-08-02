@@ -180,7 +180,7 @@
 
 export default {
   data : function (){
-    return {currMenuId:0}
+    return {currMenuId:0,"that":this}
   },
   name: "Header",
   mounted() {
@@ -193,6 +193,7 @@ export default {
   methods:{
     logout:function(){
       this.$TokenManager.Clear();
+      location.href = "/";
     },
   },
 

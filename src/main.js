@@ -21,5 +21,6 @@ var myVue = createApp(App)
 
 myVue.config.globalProperties.$TokenManager = TokenManager
 myVue.config.globalProperties.$Server = Server
+myVue.config.globalProperties.$MyRouter = router
 
 myVue.use(store).use(router).component("v-login",login).component("v-header",header).component("v-left",left).component("v-footer",footer).mount("#app");
