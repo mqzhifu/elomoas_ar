@@ -6,7 +6,7 @@
 
 
         <div class="col-xl-10 ">
-          <div class="card border-0 mb-0 rounded-lg overflow-hidden live-stream bg-image-center bg-image-cover vbg" id="remote_video_box" >
+          <div class="middle-wrap mb-5 card border-0 mb-0 rounded-lg overflow-hidden live-stream bg-image-center bg-image-cover vbg" id="remote_video_box" :style="'width:'+(rtcRemoteVideWidth)+'px;height:' +(rtcRemoteVideHeight)+'px;'"  >
             <div class="card-body d-flex justify-content-start p-2 position-absolute top-0 w-100 bg-gradiant-top" v-if="switchRemoteUserInfo">
 <!--              <div >-->
                 <figure class="avatar mb-0 mt-0 overflow-hidden">
@@ -42,19 +42,20 @@
 
 
           <!--截图容器 start-->
-          <div class="middle-wrap" id="screenshots_container" style="display:none " >
-            <div class="">
+          <div class="middle-wrap" id="screenshots_container" style="display:none; " >
+            <div class="card border-0 mb-4 rounded-lg overflow-hidden live-stream bg-image-center bg-image-cover" id="remote_video_box" :style="'width:'+(rtcRemoteVideWidth)+'px;height:' +(rtcRemoteVideHeight)+'px;'">
                 <canvas id="screenshots_canvas"></canvas>
-                <div id="myCanvasTools"></div>
 
-<!--                <div class="card-body text-center p-2 position-absolute w-100 bottom-0 bg-gradiant-bottom">-->
-                  <div class="">
+
+                <div class="card-body text-center p-2 position-absolute w-100 bottom-0 bg-gradiant-bottom">
+<!--                  <div class="">-->
                   <a v-if="switchCloseScreenIcon" href="#" @click="screenshotsCloseCanvasTools" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 mr-0 z-index-1"><i class="feather-x text-white font-md"></i></a>
                   <a v-if="switchSendScreenPicIcon" href="#" id="bnt_send_screenshots" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 z-index-1"><i class="feather-send text-white font-md"></i></a>
                 </div>
-
             </div>
+            <div id="myCanvasTools"></div>
           </div>
+
           <!--截图容器 end-->
 
 
@@ -147,6 +148,8 @@ export default {
         rtc_remote_video_width:process.env.VUE_APP_RTC_REMOTE_VIDEO_WIDTH,
         rtc_remote_video_height:process.env.VUE_APP_RTC_REMOTE_VIDEO_HEIGHT,
       },
+      "rtcRemoteVideWidth":0,
+      "rtcRemoteVideHeight":0,
       // "rtc":{
       //   client: null,
       //   localAudioTrack: null,
@@ -179,6 +182,11 @@ export default {
   mounted() {
     useStore().commit("SET_MENU_ID",4),
     this.initPageElementSwitch();
+
+
+    this.rtcRemoteVideWidth = this.getVideoSize("width");
+    // alert(this.rtcRemoteVideWidth);
+    this.rtcRemoteVideHeight = this.getVideoSize("height");
 
     //从后端获取RTC-Token，然后初始化RTC
 
