@@ -384,7 +384,7 @@ export default {
       var data = {"stream":myImg.src}
       var requestPromise = this.$Server.request("/file/upload/img/one/stream/base64",data);
       requestPromise.then((res)=>{
-        this.screenshotsSendPicToServerCallback(res);
+        this.screenshotsSendPicToServerCallback(res.data);
       });
     },
     //截图后发送图片到服务端，回调函数，最后，再通过RTM推送到对端
