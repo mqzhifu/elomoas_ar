@@ -7,12 +7,12 @@
 
         <div class="col-xl-10 ">
           <div class="middle-wrap mb-5 card border-0 mb-0 rounded-lg overflow-hidden live-stream bg-image-center bg-image-cover vbg" id="remote_video_box" :style="'width:'+(rtcRemoteVideWidth)+'px;height:' +(rtcRemoteVideHeight)+'px;'"  >
-            <div class="card-body d-flex justify-content-start p-2 position-absolute top-0 w-100 bg-gradiant-top" v-show="switchRemoteUserInfo">
+            <div class="card-body justify-content-start p-2 position-absolute top-0 w-100 bg-gradiant-top" v-show="switchRemoteUserInfo">
 <!--              <div >-->
                 <figure class="avatar mb-0 mt-0 overflow-hidden">
                   <img src="../assets/images/user-1.png" alt="image" class="z-index-1 shadow-sm rounded-circle w40">
                 </figure>
-                <h5 class="text-white mt-1 fw-700 ml-2 z-index-1 ">{{remoteUserInfo.uid}}<span class="d-block font-xsssss mt-1 fw-400 text-grey-300 z-index-1 ">2 hour</span></h5>
+                <h5 class="text-white mt-1 fw-700 ml-2 z-index-1 ">{{remoteUserInfo.uid}}<span class="d-block font-xsssss mt-1 fw-400 text-grey-300 z-index-1 ">{{remoteUserInfo.uname}}</span></h5>
 <!--              </div>-->
 <!--              <span class="live-tag position-absolute right-15 mt-2 bg-danger p-2 z-index-1  rounded-lg text-white font-xsssss text-uppersace fw-700 ls-3">LIVE</span>-->
             </div>
@@ -23,10 +23,10 @@
             </div>
 
             <div class="card-body text-center p-2 position-absolute w-100 bottom-0 bg-gradiant-bottom">
-              <a v-show="switchRtcJoinIcon" href="#" @click.native="rtcJoinChannel();" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 mr-0 z-index-1"><i class="feather-user-plus text-white font-md"></i></a>
-              <a v-show="switchLeaveIcon" href="#" @click.native="rtcUserLeave();" class="btn-round-xxl bg-danger z-index-1"><i class="feather-phone-off text-white font-md"></i></a>
-              <a v-show="switchCameraIcon" href="#" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 z-index-1"><i class="ti-video-camera text-white font-md"></i></a>
-              <a v-show="switchMonitorIcon" href="#"  @click.native="screenshotsDoing();"  class="btn-round-xl d-md-inline-block d-none bg-blur m-3 ml-0 z-index-1"><i class="feather-monitor text-white font-md"></i></a>
+              <a v-show="switchRtcJoinIcon" href="#" @click.native="rtcJoinChannel();"    class="btn-round-xl bg-blur m-3 mr-0 z-index-1"><i class="feather-user-plus text-white font-md"></i></a>
+              <a v-show="switchLeaveIcon"   href="#" @click.native="rtcUserLeave();"      class="btn-round-xl bg-danger z-index-1"><i class="feather-phone-off text-white font-md"></i></a>
+              <a v-show="switchCameraIcon"  href="#"                                      class="btn-round-xl bg-blur m-3 z-index-1"><i class="ti-video-camera text-white font-md"></i></a>
+              <a v-show="switchMonitorIcon" href="#"  @click.native="screenshotsDoing();" class="btn-round-xl bg-blur m-3 ml-0 z-index-1"><i class="feather-monitor text-white font-md"></i></a>
               <span v-show="switchLiveTime" class="p-2 bg-blur z-index-1 text-white fw-700 font-xssss rounded-lg right-15 position-absolute mb-4 bottom-0">44:00</span>
               <span v-show="switchLiveIcon" class="live-tag position-absolute left-15 mt-2 bottom-0 mb-4 bg-danger p-2 z-index-1 rounded-3 text-white font-xsssss text-uppersace fw-700 ls-3">LIVE</span>
             </div>
@@ -43,14 +43,13 @@
 
           <!--截图容器 start-->
           <div class="middle-wrap" id="screenshots_container" style="display:none; " >
-            <div class="card border-0 mb-4 rounded-lg overflow-hidden live-stream bg-image-center bg-image-cover" id="remote_video_box" :style="'width:'+(rtcRemoteVideWidth)+'px;height:' +(rtcRemoteVideHeight)+'px;'">
+<!--            <div class="middle-wrap" id="screenshots_container" style="display:none; " >-->
+            <div class="card border-0 mb-4 rounded-lg overflow-hidden live-stream bg-image-center bg-image-cover" :style="'width:'+(rtcRemoteVideWidth)+'px;height:' +(rtcRemoteVideHeight)+'px;'">
                 <canvas id="screenshots_canvas"></canvas>
-
-
                 <div class="card-body text-center p-2 position-absolute w-100 bottom-0 bg-gradiant-bottom">
 <!--                  <div class="">-->
-                  <a v-show="switchCloseScreenIcon" href="#" @click="screenshotsCloseCanvasTools" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 mr-0 z-index-1"><i class="feather-x text-white font-md"></i></a>
-                  <a v-show="switchSendScreenPicIcon" href="#" @click.native="screenshotsSendPicToServer();"  class="btn-round-xl d-md-inline-block d-none bg-blur m-3 z-index-1"><i class="feather-send text-white font-md"></i></a>
+                  <a href="#" @click="screenshotsCloseCanvasTools"           class="btn-round-xl d-md-inline-block d-none bg-blur m-3 mr-0 z-index-1"><i class="feather-x text-white font-md"></i></a>
+                  <a href="#" @click.native="screenshotsSendPicToServer();"  class="btn-round-xl d-md-inline-block d-none bg-blur m-3 z-index-1"><i class="feather-send text-white font-md"></i></a>
                 </div>
             </div>
             <div id="myCanvasTools"></div>
@@ -127,6 +126,7 @@ export default {
     return {
       "remoteUserInfo":{
           "uid":0,
+          "uname":"",
       },
       "canvasTools":null,//截图 - 工具栏
       "screenshotsExist":0,//标记：用户已经点击了截图按钮，canvas里已经有图片了
@@ -150,16 +150,6 @@ export default {
       },
       "rtcRemoteVideWidth":0,
       "rtcRemoteVideHeight":0,
-      // "rtc":{
-      //   client: null,
-      //   localAudioTrack: null,
-      //   localVideoTrack: null,
-      //   remoteVideoTrack:null,//给截图使用
-      // },
-      // "rtm":{
-      //   client  : null,
-      //   channel : null,
-      // },
       "switchRemoteUserInfo" : false,
       "switchLiveTime" : false,
       "switchLiveIcon" : false,
@@ -168,14 +158,11 @@ export default {
       "switchMonitorIcon" : false,
       "switchCameraIcon" : false,
       "switchLocalVideoBox" :false,
-      "switchSendScreenPicIcon" :false,
-      "switchCloseScreenIcon" : false,
       "switchMyCanvasTools" : false,
       "switchScreenshotsContainer" :false,
       // "switch" : false,
       "screenshots_canvas_width": 0,
       "screenshots_canvas_height" : 0,
-
     };
   },
   name: "Video",
@@ -208,7 +195,7 @@ export default {
     this.screenshotsInit();
   },
   methods:{
-    //页面上的一些元素 隐藏掉
+    //进入页面：一些元素 隐藏掉
     initPageElementSwitch : function(){
       // this.swich = false;
       this.switchRemoteUserInfo = false;
@@ -219,13 +206,12 @@ export default {
       this.switchMonitorIcon = false;
       this.switchCameraIcon = false;
       this.switchLocalVideoBox = true;
-      this.switchSendScreenPicIcon = false;
-      this.switchCloseScreenIcon = false;
       this.switchMyCanvasTools = false;
       this.switchScreenshotsContainer = false;
 
-      document.getElementById("localVideoBox").innerHTML = "";
+      // document.getElementById("localVideoBox").innerHTML = "";
     },
+    //远端有用户加入
     remoteUserJoinSwitch :function(){
       // this.swich = true;
       this.switchLiveIcon = true;
@@ -245,8 +231,6 @@ export default {
       rtc.client = AgoraRTC.createClient({mode: "rtc", codec: "vp8"});
       //监听 用户加入频道
       rtc.client.on("user-published", this.rtcEventUserPublished);
-      //点击按钮：自己离开
-      // document.getElementById("rtc_leave").onclick = this.rtcUserLeave;
     },
     rtcEventUserPublished : async function(user, mediaType){
       console.log("Listening event <user-published> , user:",user , " mediaType:",mediaType , " this.rtc.client:",rtc.client);
@@ -254,14 +238,12 @@ export default {
       // console.log("aaa:",aaa)
       if (mediaType === "video") {
         rtc.remoteVideoTrack = user.videoTrack;//给外部使用
-        // var remotePlayerContainer = this.$refs.remote_video;//找到装视频的容器对象
+        // console.log("remoteVideoTrack: w:",rtc.remoteVideoTrack.width , " h :",rtc.remoteVideoTrack.height)
+        console.log("rtc.remoteVideoTrack :",rtc.remoteVideoTrack  )
         var remotePlayerContainer = document.getElementById("remote_video_box");
         this.remoteUserInfo.uid = user.uid;
+        this.remoteUserInfo.uname = user._cname;
         this.remoteUserJoinSwitch();
-        // remotePlayerContainer.style.width = "1600px";
-        // remotePlayerContainer.style.height = "600px";
-        // remotePlayerContainer.style.width = getVideoSizePlusPX("width");
-        // remotePlayerContainer.style.height = getVideoSizePlusPX("height");
 
         rtc.remoteVideoTrack.play(remotePlayerContainer);
       }
@@ -272,6 +254,7 @@ export default {
       //监听：其它用户退出事件
       rtc.client.on("user-unpublished", this.rtcEventUserUnpublished);
     },
+    //本地用户，点击离开按钮
     rtcUserLeave : async function(){
       rtc.localAudioTrack.close();
       rtc.localVideoTrack.close();
@@ -285,16 +268,15 @@ export default {
       this.switchLiveIcon = false;
       this.switchMonitorIcon = false;
       this.switchCameraIcon = false;
-      document.getElementById("localVideoBox").innerHTML = "";
+      // document.getElementById("localVideoBox").innerHTML = "";
       this.screenshotsCloseCanvasTools();
       await rtc.client.leave();
 
     },
+    //本地用户，加入频道
     rtcJoinChannel: async function () {
       console.log("rtc join :", this.agora.appId, this.agora.channel, this.agora.rtc_user.token, this.agora.rtc_user.uid);
       await rtc.client.join(this.agora.appId, this.agora.channel, this.agora.rtc_user.token, this.agora.rtc_user.uid);
-
-
 
       this.switchLocalVideoBox = false;
       this.switchRtcJoinIcon = false;
@@ -309,6 +291,7 @@ export default {
 
       console.log("local AudioTrack json success, publish success!");
     },
+    //监听远端用户退出视频
     rtcEventUserUnpublished :async function(user){
       console.log("Listening event <user-unpublished> , user:",user );
       // remotePlayerContainer.remove();
@@ -324,7 +307,7 @@ export default {
       this.switchCameraIcon = false;
       this.screenshotsClose();
 
-      document.getElementById("localVideoBox").innerHTML = "";
+      // document.getElementById("localVideoBox").innerHTML = "";
       // document.getElementById("remote_video").innerHTML="";
       // document.getElementById("bnt_send_screenshots").style.display = "none";
       // this.$ref.remote_video.innerHTML = "";
@@ -334,12 +317,9 @@ export default {
     //============================screenshots start====================================================================================
     //初始化：视频截图功能
     screenshotsInit :function (){
-      // this.switchScreenshotsContainer = true;
       var screenshots_canvas_obj =  document.getElementById("screenshots_canvas");
       screenshots_canvas_obj.width = this.getVideoSize("width");
       screenshots_canvas_obj.height = this.getVideoSize("height");
-      // this.screenshots_canvas_width = this.getVideoSize("width");
-      // this.screenshots_canvas_height = this.getVideoSize("height");
     },
     //截取:对方视频 - 图片
     screenshotsDoing : function (){
@@ -350,9 +330,7 @@ export default {
       if (!rtc.remoteVideoTrack){
         return alert("对端还未接入视频，无法截图，请等待...");
       }
-      // this.switchScreenshotsContainer = true;
-      this.switchSendScreenPicIcon = true;//打开按钮：发送图片
-      this.switchCloseScreenIcon = true;//打开按钮：关闭截图窗口
+      this.switchScreenshotsContainer = true;
       //打开：截图窗口
       var screenshots_container = document.getElementById("screenshots_container");
       screenshots_container.style.display = "";
@@ -383,6 +361,7 @@ export default {
     //关闭截图窗口
     screenshotsCloseCanvasTools : function(){
       document.getElementById("screenshots_container").style.display = "none";
+      // this.switchScreenshotsContainer = false;
       if(!this.screenshotsExist){
         console.log("未点击截图，不需要关闭截图工具栏");
         return 0;
@@ -469,39 +448,6 @@ export default {
   }
 
 };
-//图片放大
-function spreadImageData(imgData, ratio, size = {}) {
-  const { width, height, data } = imgData;
-  var ww = size?.width || width * ratio;
-  var hh =  size?.height || height * ratio;
-  console.log("ww:",ww ," hh:",hh);
-  const result = new ImageData(ww,hh);
-  const { width: rw, data: rData } = result;
-  // 把源数据一个像素点填充到目标的10个像素点上，达到把图像放大10倍的目的
-  for (let sourceRowIndex = 0; sourceRowIndex < height; sourceRowIndex++) {
-    for (let sourceColumnIndex = 0; sourceColumnIndex < width; sourceColumnIndex++) {
-      const sourcePixelIndex = (sourceRowIndex * width + sourceColumnIndex) * 4;
-      const [r, g, b, a] = [
-        data[sourcePixelIndex],
-        data[sourcePixelIndex + 1],
-        data[sourcePixelIndex + 2],
-        data[sourcePixelIndex + 3],
-      ];
-      for (let resultRowIndex = 0; resultRowIndex < ratio; resultRowIndex++) {
-        const resultPixelIndex = sourceRowIndex * ratio + resultRowIndex;
-        for (let resultColumnIndex = 0; resultColumnIndex < ratio; resultColumnIndex++) {
-          const resultDataIndex = (resultPixelIndex * rw + sourceColumnIndex * ratio + resultColumnIndex) * 4;
-          rData[resultDataIndex] = r;
-          rData[resultDataIndex + 1] = g;
-          rData[resultDataIndex + 2] = b;
-          rData[resultDataIndex + 3] = a;
-        }
-      }
-    }
-  }
-  return result;
-}
-
 
 
 </script>
