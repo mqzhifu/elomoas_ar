@@ -242,14 +242,15 @@
         else return 0
     };
     j.pwdStrong = function(a) {
-        // var b = 0;
+        return 4;
+        
         var b = 1;
         if (a.match(/[a-z]/g)) {
             b++
         }
-        // if (a.match(/[A-Z]/g)) {
-        //     b++
-        // }
+        if (a.match(/[A-Z]/g)) {
+            b++
+        }
         if (a.match(/[0-9]/g)) {
             b++
         }
