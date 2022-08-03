@@ -7,7 +7,7 @@
 
         <div class="col-xl-10 ">
           <div class="middle-wrap mb-5 card border-0 mb-0 rounded-lg overflow-hidden live-stream bg-image-center bg-image-cover vbg" id="remote_video_box" :style="'width:'+(rtcRemoteVideWidth)+'px;height:' +(rtcRemoteVideHeight)+'px;'"  >
-            <div class="card-body d-flex justify-content-start p-2 position-absolute top-0 w-100 bg-gradiant-top" v-if="switchRemoteUserInfo">
+            <div class="card-body d-flex justify-content-start p-2 position-absolute top-0 w-100 bg-gradiant-top" v-show="switchRemoteUserInfo">
 <!--              <div >-->
                 <figure class="avatar mb-0 mt-0 overflow-hidden">
                   <img src="../assets/images/user-1.png" alt="image" class="z-index-1 shadow-sm rounded-circle w40">
@@ -19,16 +19,16 @@
 
 
             <div class="position-absolute right-15 mt-2 p-2 z-index-1  rounded-lg  fw-700 ls-3 w150 h200" id="localVideoBox" >
-              <img v-if="switchLocalVideoBox" src="../assets/images/video-bg-2.jpg" alt="image" class="w150 h200 rounded-3 position-relative z-index-1 shadow-xss">
+              <img v-show="switchLocalVideoBox" src="../assets/images/video-bg-2.jpg" alt="image" class="w150 h200 rounded-3 position-relative z-index-1 shadow-xss">
             </div>
 
             <div class="card-body text-center p-2 position-absolute w-100 bottom-0 bg-gradiant-bottom">
-              <a v-if="switchRtcJoinIcon" href="#" @click.native="rtcJoinChannel();" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 mr-0 z-index-1"><i class="feather-user-plus text-white font-md"></i></a>
-              <a v-if="switchLeaveIcon" href="#" @click.native="rtcUserLeave();" class="btn-round-xxl bg-danger z-index-1"><i class="feather-phone-off text-white font-md"></i></a>
-              <a v-if="switchCameraIcon" href="#" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 z-index-1"><i class="ti-video-camera text-white font-md"></i></a>
-              <a v-if="switchMonitorIcon" href="#"  @click.native="screenshotsDoing();"  class="btn-round-xl d-md-inline-block d-none bg-blur m-3 ml-0 z-index-1"><i class="feather-monitor text-white font-md"></i></a>
-              <span v-if="switchLiveTime" class="p-2 bg-blur z-index-1 text-white fw-700 font-xssss rounded-lg right-15 position-absolute mb-4 bottom-0">44:00</span>
-              <span v-if="switchLiveIcon" class="live-tag position-absolute left-15 mt-2 bottom-0 mb-4 bg-danger p-2 z-index-1 rounded-3 text-white font-xsssss text-uppersace fw-700 ls-3">LIVE</span>
+              <a v-show="switchRtcJoinIcon" href="#" @click.native="rtcJoinChannel();" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 mr-0 z-index-1"><i class="feather-user-plus text-white font-md"></i></a>
+              <a v-show="switchLeaveIcon" href="#" @click.native="rtcUserLeave();" class="btn-round-xxl bg-danger z-index-1"><i class="feather-phone-off text-white font-md"></i></a>
+              <a v-show="switchCameraIcon" href="#" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 z-index-1"><i class="ti-video-camera text-white font-md"></i></a>
+              <a v-show="switchMonitorIcon" href="#"  @click.native="screenshotsDoing();"  class="btn-round-xl d-md-inline-block d-none bg-blur m-3 ml-0 z-index-1"><i class="feather-monitor text-white font-md"></i></a>
+              <span v-show="switchLiveTime" class="p-2 bg-blur z-index-1 text-white fw-700 font-xssss rounded-lg right-15 position-absolute mb-4 bottom-0">44:00</span>
+              <span v-show="switchLiveIcon" class="live-tag position-absolute left-15 mt-2 bottom-0 mb-4 bg-danger p-2 z-index-1 rounded-3 text-white font-xsssss text-uppersace fw-700 ls-3">LIVE</span>
             </div>
 
 
@@ -49,8 +49,8 @@
 
                 <div class="card-body text-center p-2 position-absolute w-100 bottom-0 bg-gradiant-bottom">
 <!--                  <div class="">-->
-                  <a v-if="switchCloseScreenIcon" href="#" @click="screenshotsCloseCanvasTools" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 mr-0 z-index-1"><i class="feather-x text-white font-md"></i></a>
-                  <a v-if="switchSendScreenPicIcon" href="#" id="bnt_send_screenshots" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 z-index-1"><i class="feather-send text-white font-md"></i></a>
+                  <a v-show="switchCloseScreenIcon" href="#" @click="screenshotsCloseCanvasTools" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 mr-0 z-index-1"><i class="feather-x text-white font-md"></i></a>
+                  <a v-show="switchSendScreenPicIcon" href="#" id="bnt_send_screenshots" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 z-index-1"><i class="feather-send text-white font-md"></i></a>
                 </div>
             </div>
             <div id="myCanvasTools"></div>
