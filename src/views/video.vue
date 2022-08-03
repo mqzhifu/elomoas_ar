@@ -50,7 +50,7 @@
                 <div class="card-body text-center p-2 position-absolute w-100 bottom-0 bg-gradiant-bottom">
 <!--                  <div class="">-->
                   <a v-show="switchCloseScreenIcon" href="#" @click="screenshotsCloseCanvasTools" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 mr-0 z-index-1"><i class="feather-x text-white font-md"></i></a>
-                  <a v-show="switchSendScreenPicIcon" href="#" id="bnt_send_screenshots" class="btn-round-xl d-md-inline-block d-none bg-blur m-3 z-index-1"><i class="feather-send text-white font-md"></i></a>
+                  <a v-show="switchSendScreenPicIcon" href="#" @click.native="screenshotsSendPicToServer();"  class="btn-round-xl d-md-inline-block d-none bg-blur m-3 z-index-1"><i class="feather-send text-white font-md"></i></a>
                 </div>
             </div>
             <div id="myCanvasTools"></div>
@@ -180,18 +180,14 @@ export default {
   },
   name: "Video",
   mounted() {
+    //更新菜单选中ID
     useStore().commit("SET_MENU_ID",4),
     this.initPageElementSwitch();
-
-
+    //设置远程视频容器大小
     this.rtcRemoteVideWidth = this.getVideoSize("width");
-    // alert(this.rtcRemoteVideWidth);
     this.rtcRemoteVideHeight = this.getVideoSize("height");
-
     //从后端获取RTC-Token，然后初始化RTC
-
     var data = {"username": this.agora.rtc_user.uid.toString(), "channel": this.agora.channel};
-    // var data = {"username": this.agora.rtc_user.uid, "channel": this.agora.channel};
     var requestPromise = this.$Server.request("/twin/agora/rtc/get/token", data );
     requestPromise.then((res)=>{
       if (res.code != 200){
@@ -208,7 +204,7 @@ export default {
       }
       this.rtmInit(res.data);
     });
-
+    //初始化 截图涂鸦工具
     this.screenshotsInit();
   },
   methods:{
@@ -345,7 +341,7 @@ export default {
       // this.screenshots_canvas_width = this.getVideoSize("width");
       // this.screenshots_canvas_height = this.getVideoSize("height");
     },
-    //截取 - 对方视频 - 图片
+    //截取:对方视频 - 图片
     screenshotsDoing : function (){
       if (this.screenshotsExist == 1){
         this.screenshotsClose();
@@ -354,62 +350,25 @@ export default {
       if (!rtc.remoteVideoTrack){
         return alert("对端还未接入视频，无法截图，请等待...");
       }
-      //默认 截图的窗口是关闭的，当点击截图后，要先展示出来
       // this.switchScreenshotsContainer = true;
-      this.switchSendScreenPicIcon = true;
-      this.switchCloseScreenIcon = true;
-
+      this.switchSendScreenPicIcon = true;//打开按钮：发送图片
+      this.switchCloseScreenIcon = true;//打开按钮：关闭截图窗口
+      //打开：截图窗口
       var screenshots_container = document.getElementById("screenshots_container");
       screenshots_container.style.display = "";
-
+      //获取当前无端用户的视频帧图片
       var videoFrameImgData = rtc.remoteVideoTrack.getCurrentFrameData();
       console.log("width:",videoFrameImgData.width," height:",videoFrameImgData.height, " videoFrameImgData:",videoFrameImgData)
 
-      // var newSize = {"width":1000,"height":500}
-      // var hasResize = 0;
-      // if (videoFrameImgData.width < this.getVideoSize("width") ){
-      //   newSize.width = 1600;
-      //   hasResize = 1;
-      // }
-      //
-      // if (videoFrameImgData.height < this.getVideoSize("height") ){
-      //   newSize.height = 800;
-      //   hasResize = 1;
-      // }
-      videoFrameImgData = spreadImageData(videoFrameImgData,2);
-
       var  canvas = document.getElementById("screenshots_canvas");
       var ctx = canvas.getContext('2d');
-      // alert(videoFrameImgData.width);
-      // 这里先注释掉，暂时不要改变大小
-
-
-      // var newCanvas = $("<canvas>")
-      //     .attr("width", videoFrameImgData.width)
-      //     .attr("height", videoFrameImgData.height)[0];
-      //
-      // newCanvas.getContext("2d").putImageData(videoFrameImgData, 0, 0);
-
-      // ctx.scale(2,2);
-      // ctx.drawImage(newCanvas, 0, 0);
-
-
-      // videoFrameImgData = videoFrameImgData.scale(2,2);
       // canvas.width = videoFrameImgData.width;
       // canvas.height = videoFrameImgData.height;
       ctx.putImageData(videoFrameImgData, 0, 0);
-      //给发送截图 按钮：注册点击事件
-      // var bnt_send_screenshots_obj = document.getElementById("bnt_send_screenshots");
-      // //先给按钮点击事件置空，防止重复添加事件
-      // bnt_send_screenshots_obj.onclick = null;
-      // bnt_send_screenshots_obj.onclick = function(){
-      //   //将截图发送到服务端
-      //   this.screenshotsSendPicToServer();
-      // }
       //打开涂鸦工具条
       this.screenshotsOpenCanvasTools();
     },
-
+    //打开 图片涂鸦工具栏
     screenshotsOpenCanvasTools : function(){
       if(!this.screenshotsExist){
         return alert("未点击截图，无法打开：截图工具栏");
@@ -421,22 +380,19 @@ export default {
         container : document.getElementById('myCanvasTools')
       });
     },
-
-    // screenshotsClose:function(){
-    //   // this.switchScreenshotsContainer = false;
-    //   this.screenshotsCloseCanvasTools();
-    // },
-
+    //关闭截图窗口
     screenshotsCloseCanvasTools : function(){
       document.getElementById("screenshots_container").style.display = "none";
       if(!this.screenshotsExist){
-        return alert("未点击截图，不需要关闭截图工具栏");
+        console.log("未点击截图，不需要关闭截图工具栏");
+        return 0;
       }
 
       document.getElementById('myCanvasTools').innerHTML = "";
       this.canvasTools = null;
       this.screenshotsExist = 0;
     },
+    //将截图发送给server端
     screenshotsSendPicToServer :function (){
       if (!this.screenshotsExist){
         return alert("请先截图，再发送...");
@@ -513,7 +469,7 @@ export default {
   }
 
 };
-
+//图片放大
 function spreadImageData(imgData, ratio, size = {}) {
   const { width, height, data } = imgData;
   var ww = size?.width || width * ratio;
