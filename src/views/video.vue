@@ -25,7 +25,8 @@
             <div class="card-body text-center p-2 position-absolute w-100 bottom-0 bg-gradiant-bottom">
               <a v-show="switchRtcJoinIcon" href="#" @click.native="rtcJoinChannel();"    class="btn-round-xl bg-blur m-3 mr-0 z-index-1"><i class="feather-user-plus text-white font-md"></i></a>
               <a v-show="switchLeaveIcon"   href="#" @click.native="rtcUserLeave();"      class="btn-round-xl bg-danger z-index-1"><i class="feather-phone-off text-white font-md"></i></a>
-              <a v-show="switchCameraIcon"  href="#"                                      class="btn-round-xl bg-blur m-3 z-index-1"><i class="ti-video-camera text-white font-md"></i></a>
+<!--              <a v-show="switchCameraIcon"  href="#"  @click.native="cameraDoing"        class="btn-round-xl bg-blur m-3 z-index-1"><i class="ti-video-camera text-white font-md"></i></a>-->
+              <a  href="#"  @click.native="cameraDoing"        class="btn-round-xl bg-blur m-3 z-index-1"><i class="ti-video-camera text-white font-md"></i></a>
               <a v-show="switchMonitorIcon" href="#"  @click.native="screenshotsDoing();" class="btn-round-xl bg-blur m-3 ml-0 z-index-1"><i class="feather-monitor text-white font-md"></i></a>
               <span v-show="switchLiveTime" class="p-2 bg-blur z-index-1 text-white fw-700 font-xssss rounded-lg right-15 position-absolute mb-4 bottom-0">44:00</span>
               <span v-show="switchLiveIcon" class="live-tag position-absolute left-15 mt-2 bottom-0 mb-4 bg-danger p-2 z-index-1 rounded-3 text-white font-xsssss text-uppersace fw-700 ls-3">LIVE</span>
@@ -429,6 +430,29 @@ export default {
       });
     },
     //============================rtm end====================================================================================
+    cameraDoing : async function(){
+      var data = {"uid": this.agora.rtc_user.uid.toString(), "cname": this.agora.channel};
+      var requestPromise = this.$Server.request("/twin/agora/rtc/get/cloud/record/acquire", data );
+      requestPromise.then((res)=>{
+        if (res.code != 200){
+          return alert("reqeust err (/twin/agora/rtc/get/cloud/record/acquire):"+res.msg);
+        }
+        this.cameraStart(res.data)
+      });
+    },
+    cameraStart : async function(AgoraRecord){
+      console.log("cameraStart AgoraRecord:",AgoraRecord)
+      var data = {"uid": this.agora.rtc_user.uid.toString(), "cname": this.agora.channel ,"resource_id":AgoraRecord.resourceId};
+      var requestPromise = this.$Server.request("/twin/agora/rtc/cloud/record/start", data );
+      requestPromise.then((res)=>{
+        console.log("cameraStart res:",res)
+      //   if (res.code != 200){
+      //     return alert("reqeust err (/twin/agora/rtc/get/cloud/record/acquire):"+res.msg);
+      //   }
+      //   var requestId = res.data;
+      //   alert(requestId);
+      });
+    },
     getVideoSize:function  (direction){
       var rs = 0;
       if (direction == "width"){
