@@ -4,12 +4,12 @@
 
   <div class="aui-register-popup">
     <div class="aui-register-box">
-      <div class="aui-register-link">
-        <a href="javascript:;" class="fl">返回首页</a>
-        <a href="javascript:;" class="fr">已有账号？去登录</a>
-      </div>
+<!--      <div class="aui-register-link">-->
+<!--        <a href="javascript:;" class="fl">返回首页</a>-->
+<!--        <a href="javascript:;" class="fr">已有账号？去登录</a>-->
+<!--      </div>-->
       <div class="aui-register-logo">
-        <img src="../assets/images/login/logo.png" alt="">
+        <img src="../assets/images/my_logo.png" alt="">
       </div>
       <div class="aui-register-form" id="verifyCheck">
         <div class="register-wrap" id="register-wrap">
@@ -40,7 +40,7 @@
               </div>
               <div class="aui-protocol">
                 登录即同意
-                <a href="#">《bootstrapmb网使用协议》</a>&
+                <a href="#">《seedreality网使用协议》</a>&
                 <a href="#">《隐私权条款》</a>
               </div>
               <div class="aui-thirds">
@@ -119,12 +119,12 @@
         </div>
         <div class="clearfix"></div>
       </div>
-      <div class="aui-register-bottom">
-        <a>©www.bootstrapmb.com</a>
-        <a href="#">联系客服</a>
-        <a href="#">帮助中心</a>
-        <div class="clear"></div>
-      </div>
+<!--      <div class="aui-register-bottom">-->
+<!--        <a>©www.seedreality.com</a>-->
+<!--        <a href="#">联系客服</a>-->
+<!--        <a href="#">帮助中心</a>-->
+<!--        <div class="clear"></div>-->
+<!--      </div>-->
     </div>
   </div>
 
