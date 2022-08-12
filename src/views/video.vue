@@ -19,7 +19,7 @@
 
 
             <div class="position-absolute right-15 mt-2 p-2 z-index-1  rounded-lg  fw-700 ls-3 w150 h200" id="localVideoBox" >
-              <img v-show="switchLocalVideoBox" src="../assets/images/video_self_bg2.jpg" alt="image" class="w150 h200 rounded-3 position-relative z-index-1 shadow-xss">
+              <img v-show="switchLocalVideoBox" src="../assets/images/video_self_bg2.png" alt="image" class="w150 h200 rounded-3 position-relative z-index-1 shadow-xss">
             </div>
 
             <div class="card-body text-center p-2 position-absolute w-100 bottom-0 bg-gradiant-bottom">
@@ -479,7 +479,7 @@ export default {
 
 <style>
 .vbg{
-  background-image: url(../assets/images/video_self_bg3.jpg)
+  background-image: url(../assets/images/video_self_bg1.jpg)
 }
 
 @import "../assets/css/canvastools.min.css";
