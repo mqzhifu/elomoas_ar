@@ -479,7 +479,7 @@ export default {
 
 <style>
 .vbg{
-  background-image: url(../assets/images/video_self_bg1.jpg)
+  background-image: url(../assets/images/video_self_bg3.jpg)
 }
 
 @import "../assets/css/canvastools.min.css";
