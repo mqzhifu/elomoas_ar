@@ -1,5 +1,8 @@
 # elomoas_ar
 
+## 已被 digitaltwin 项目 替代，放弃了此项目
+
+
 ## Project setup
 ```
 npm install
